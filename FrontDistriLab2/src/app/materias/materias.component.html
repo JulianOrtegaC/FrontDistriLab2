@@ -1,1 +1,27 @@
-<p>materias works!</p>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef> Codigo </th>
+      <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="NameSubject">
+      <th mat-header-cell *matHeaderCellDef> nombre Materia </th>
+      <td mat-cell *matCellDef="let element"> {{element.NameSubject}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Quotas">
+      <th mat-header-cell *matHeaderCellDef> Quotas </th>
+      <td mat-cell *matCellDef="let element"> {{element.Quotas}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="StatusSubject">
+      <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
+      <td mat-cell *matCellDef="let element"> {{element.StatusSubject}} </td>
+    </ng-container>
+  
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
