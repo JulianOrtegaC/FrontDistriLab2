@@ -4,23 +4,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EstudiantesComponent } from './estudiantes/estudiantes.component';
-import { InscripcionComponent } from './inscripcion/inscripcion.component';
-import { MateriasComponent } from './materias/materias.component';
-import { PrincipalComponent } from './principal/principal.component';
+import { MateriasComponent } from './components/materias/materias.component';
+import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { EstudiantesComponent } from './components/estudiantes/estudiantes.component';
+import { SharedModule } from './shared/shared.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MateriasComponent,
-    EstudiantesComponent,
     InscripcionComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    EstudiantesComponent
+
   ],
   imports: [
+    
     BrowserModule,
     MatTableModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
