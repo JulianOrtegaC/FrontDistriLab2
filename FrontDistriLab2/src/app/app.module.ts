@@ -9,6 +9,7 @@ import { InscripcionComponent } from './components/inscripcion/inscripcion.compo
 import { PrincipalComponent } from './components/principal/principal.component';
 import { EstudiantesComponent } from './components/estudiantes/estudiantes.component';
 import { SharedModule } from './shared/shared.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -18,15 +19,15 @@ import { SharedModule } from './shared/shared.module';
     MateriasComponent,
     InscripcionComponent,
     PrincipalComponent,
-    EstudiantesComponent
+    EstudiantesComponent,
+    NavbarComponent
 
   ],
   imports: [
-    
     BrowserModule,
     MatTableModule,
-    AppRoutingModule,
     SharedModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

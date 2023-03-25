@@ -18,6 +18,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 
 
@@ -50,7 +52,8 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatDialogModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule
   ],
   exports: [CommonModule,
     MatIconModule,
@@ -68,7 +71,8 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatDialogModule ,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule
   ]
 })
 export class SharedModule { }
