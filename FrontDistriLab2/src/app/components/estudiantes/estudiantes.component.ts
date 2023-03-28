@@ -1,4 +1,4 @@
-  import {AfterViewInit, Component, ViewChild} from '@angular/core';
+  import {AfterViewInit, Component, ViewChild,OnInit } from '@angular/core';
   import {MatPaginator} from '@angular/material/paginator';
   import {MatSort} from '@angular/material/sort';
   import {MatTableDataSource} from '@angular/material/table';
@@ -32,22 +32,25 @@ const ELEMENT_DATA: Estudiantes[] = [
   })
   
 
-  export class EstudiantesComponent implements AfterViewInit {
+  export class EstudiantesComponent implements OnInit  {
+  // export class EstudiantesComponent implements AfterViewInit {
     displayedColumns: string[] = ['codigo', 'name', 'apellido', 'type_doc', 'doc', 'estado', 'genero']
-    dataSource: MatTableDataSource<Estudiantes>;
+    dataSource = new MatTableDataSource<Estudiantes>(ELEMENT_DATA);
   
     @ViewChild(MatPaginator) paginator!: MatPaginator;
-    @ViewChild(MatSort) sort!: MatSort ;
+    // @ViewChild(MatSort) sort!: MatSort ;
   
-    constructor() {
-  
-      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-    }
-  
-    ngAfterViewInit() {
+    // constructor() {
+    //   this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    // }
+    ngOnInit() {
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
     }
+  
+    // ngAfterViewInit() {
+    //   this.dataSource.paginator = this.paginator;
+    //   this.dataSource.sort = this.sort;
+    // }
   
     
   }

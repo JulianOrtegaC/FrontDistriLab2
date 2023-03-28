@@ -1,7 +1,7 @@
 .contenedorfiltro_tabla{
-  position: relative;
-  width: 100%;
-  background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .contenedorTabla{
   width: 80%;
