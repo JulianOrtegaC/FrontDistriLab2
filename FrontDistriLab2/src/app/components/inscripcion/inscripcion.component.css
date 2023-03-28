@@ -6,3 +6,15 @@
 .contenedorTabla{
   width: 80%;
 }
+
+.btn {
+  background-color: #26b40d;
+  border: 2px solid #D6F8B8;
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 80px;
+  padding: 8px 20px;
+  transition: all 0.3s ease-in-out;
+}

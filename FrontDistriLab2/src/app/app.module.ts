@@ -10,7 +10,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { EstudiantesComponent } from './components/estudiantes/estudiantes.component';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserModule,
     MatTableModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
