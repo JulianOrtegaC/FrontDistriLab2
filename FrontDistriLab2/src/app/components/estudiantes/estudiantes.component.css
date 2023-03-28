@@ -1,3 +1,6 @@
-table {
-    width: 100%;
-  }
+.contenedorfiltro_tabla{
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background-color: aqua;
+}

@@ -1,8 +1,14 @@
+.navxd{
+  display:flex ;
+  width: 100%;
+  background-color: #424242;
+  padding: 20px;
+}
 .btn {
     background-color: transparent;
     border: 2px solid #D6F8B8;
     border-radius: 25px;
-    color: #D6F8B8;
+    color: #fff;
     font-size: 16px;
     font-weight: 500;
     margin-left: 20px;
@@ -11,14 +17,19 @@
 }
 .title{
     margin-left: 10%;
+    font-size: 25px;
+    width: 500px;
+    color: #fff;
 }
 .btn-div{
+  display: flex;
     margin-right: 10%;
-      margin-left: auto;
+    margin-left: auto;
+    color: fff;
     
   }
   
-  .btn.mat-primary {
+  .btn.mat {
     background-color: #D6F8B8;
     color: #fff;
   }

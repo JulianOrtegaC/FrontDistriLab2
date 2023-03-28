@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface Estudiantes {
+  import {AfterViewInit, Component, ViewChild} from '@angular/core';
+  import {MatPaginator} from '@angular/material/paginator';
+  import {MatSort} from '@angular/material/sort';
+  import {MatTableDataSource} from '@angular/material/table';
+  export interface Estudiantes {
   codigo: number,
   name: string;
   apellido: string;
@@ -9,6 +11,7 @@ export interface Estudiantes {
   estado: string;
   genero: string;
 }
+
 
 const ELEMENT_DATA: Estudiantes[] = [
   {codigo: 1, name: 'Hydrogen', apellido: '', type_doc: 'CC', doc: '12309123', estado: 'A', genero: 'M'},
@@ -22,18 +25,32 @@ const ELEMENT_DATA: Estudiantes[] = [
   {codigo: 9, name: 'Fluorine', apellido: '', type_doc: 'CC', doc: '12309123', estado: 'A', genero: 'M'},
   {codigo: 10, name: 'Neon', apellido: '', type_doc: 'CC', doc: '12309123', estado: 'A', genero: 'M'},
 ];
+  @Component({
+    selector: 'app-estudiantes',
+    templateUrl: './estudiantes.component.html',
+    styleUrls: ['./estudiantes.component.css']
+  })
+  
 
-@Component({
-  selector: 'app-estudiantes',
-  templateUrl: './estudiantes.component.html',
-  styleUrls: ['./estudiantes.component.css']
-})
-export class EstudiantesComponent implements OnInit {
-  displayedColumns: string[] = ['codigo', 'name', 'apellido', 'type_doc', 'doc', 'estado', 'genero']
-  dataSource: Estudiantes[] = ELEMENT_DATA;
-
-  ngOnInit() {
+  export class EstudiantesComponent implements AfterViewInit {
+    displayedColumns: string[] = ['codigo', 'name', 'apellido', 'type_doc', 'doc', 'estado', 'genero']
+    dataSource: MatTableDataSource<Estudiantes>;
+  
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
+    @ViewChild(MatSort) sort!: MatSort ;
+  
+    constructor() {
+  
+      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    }
+  
+    ngAfterViewInit() {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+  
+    
   }
-
-}
+  
+  
 

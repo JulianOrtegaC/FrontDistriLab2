@@ -19,6 +19,13 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+import { BrowserModule } from '@angular/platform-browser';
+
+
+
+
 
 
 
@@ -53,7 +60,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatDialogModule,
     HttpClientModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    BrowserModule
   ],
   exports: [CommonModule,
     MatIconModule,
@@ -72,7 +82,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatDialogModule ,
     HttpClientModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatSelectModule,BrowserModule
   ]
 })
 export class SharedModule { }
