@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as XLSX from 'xlsx';
 
 export interface Inscripcion {
   id_inscripcion: number,
@@ -11,7 +12,7 @@ const ELEMENT_DATA: Inscripcion[] = [
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
-  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
+  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'}
 ];
 
 @Component({
@@ -27,3 +28,21 @@ export class InscripcionComponent implements OnInit {
   }
 
 }
+
+export function exportToExcel(): void {
+  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(ELEMENT_DATA);
+  const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+  const excelBuffer: any = XLSX.write(workbook, { bookType: 'xls', type: 'array' });
+  saveAsExcelFile(excelBuffer, 'data');
+}
+
+export function saveAsExcelFile(buffer: any, fileName: string): void {
+  const data: Blob = new Blob([buffer], {type: 'application/vnd.ms-excel'});
+  const url: string = window.URL.createObjectURL(data);
+  const link: HTMLAnchorElement = document.createElement('a');
+  link.href = url;
+  link.download = fileName + '.xls';
+  link.click();
+}
+
+exportToExcel();
