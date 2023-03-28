@@ -1,3 +1,8 @@
-table {
-    width: 100%;
-  }
+.contenedorfiltro_tabla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedorTabla{
+  width: 80%;
+}
