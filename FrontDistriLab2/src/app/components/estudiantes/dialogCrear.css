@@ -1,0 +1,67 @@
+
+.container{
+    padding: 10px;
+    background-color: white;
+    width: 850px;
+    height: 500px;
+}
+.FormularioCrear{
+    background-color: white;
+}
+
+.select{
+    background-color: #f0f0f0;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 0px;
+    border: none;
+}
+.TipoP{
+    width: 50%;
+    display: flex;
+    margin-left: 10%;
+    width: 80%;
+    height: 40px;
+}
+.conInputs{
+    background-color: #FCC728;
+    display: inline;
+}
+.conText{
+    display: flex;
+}
+.conText h3{
+    display: inline;
+    margin: auto;
+}
+form{
+    display: inline;
+}
+form input{
+    display: inline;
+    font-family: 'Muli', sans-serif;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #d1d1d1;
+    border-radius: 10px;
+  }
+  textarea:focus, input:focus{
+      outline-color: #FCC728;
+      color: #FCC728;
+  }
+  input[type="submit"]{
+    display: flex;
+    font-family: 'Muli', sans-serif;
+    background-color: #fff;
+    border: solid 1px #d1d1d1;
+    transition: all 0.4s;
+  }
+  input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #FCC728;
+    border: solid 1px #fff;
+  }
+
+  .formularios form{
+    margin: 50px;
+  }

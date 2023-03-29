@@ -18,7 +18,6 @@ export class MateriasComponent implements OnInit {
   showPaginator = false;
   error = false;
   errorMessaje = "Error en las materias";
-
   displayedColumns: string[] = ['codSubject', 'nameSubject', 'quotas', 'statusSubject']
   columnsToDisplayWithExpand = [this.displayedColumns, 'expand'];
   dataSource = new MatTableDataSource<Materias>();
