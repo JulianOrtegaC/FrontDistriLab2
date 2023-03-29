@@ -28,9 +28,7 @@ export class MateriasComponent implements OnInit {
   constructor(public materiasService: MateriasService) { }
 
   ngOnInit(): void {
-    this.materiasService.getMaterias().subscribe(data => {
-      console.log(data);
-    });
+    this.materiasService.getMaterias();
   }
 
   ngAfterViewInit() {
