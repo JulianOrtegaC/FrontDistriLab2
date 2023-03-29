@@ -1,4 +1,6 @@
-
+:host{
+    background-color: #fff;
+}
 .container{
     padding: 10px;
     background-color: white;
@@ -17,40 +19,45 @@
     border: none;
 }
 .TipoP{
-    width: 50%;
-    display: flex;
+    display: inline;
     margin-left: 10%;
-    width: 80%;
+    width: 40%;
     height: 40px;
 }
 .conInputs{
-    background-color: #FCC728;
     display: inline;
+    margin-left:10%;
 }
 .conText{
     display: flex;
+}
+h3{
+    margin-left: 5%;
 }
 .conText h3{
     display: inline;
     margin: auto;
 }
-form{
-    display: inline;
-}
 form input{
     display: inline;
+    width: 40%;
+    margin: auto;
     font-family: 'Muli', sans-serif;
     padding: 10px;
     margin-bottom: 10px;
     border: solid 1px #d1d1d1;
     border-radius: 10px;
   }
+  .inpCod{
+    margin-left:5% ;
+  }
   textarea:focus, input:focus{
       outline-color: #FCC728;
-      color: #FCC728;
   }
   input[type="submit"]{
     display: flex;
+    position: relative;
+    margin-left: 80%;
     font-family: 'Muli', sans-serif;
     background-color: #fff;
     border: solid 1px #d1d1d1;
@@ -62,6 +69,10 @@ form input{
     border: solid 1px #fff;
   }
 
+  .botonEnvi{
+    margin-top: 20px;
+    display: flex;
+  }
   .formularios form{
     margin: 50px;
   }

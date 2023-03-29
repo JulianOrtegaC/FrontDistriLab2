@@ -16,6 +16,15 @@ export class MateriasService {
         return this.http.get(this.baseUrl + '/getSubject');
     }
 
+    getMateriasFilterNormal(): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectNormal');
+    }
+
+    getFilterDecending(): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectDecending');
+    }
+
+
     updateMateria(materia: Materias): Observable<any> {
         return this.http.put(this.baseUrl + "/editSubject", materia);
     }

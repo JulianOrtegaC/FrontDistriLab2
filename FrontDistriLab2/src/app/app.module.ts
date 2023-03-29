@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from "@angular/common/http";
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -35,6 +36,7 @@ import { DialogInscripcionComponent } from './components/inscripcion/DialogInscr
     HttpClientModule,
     MatProgressBarModule,
     MatButtonModule,
+    MatChipsModule,
     MatDialogModule,
     SharedModule,
     AppRoutingModule,

@@ -2,6 +2,13 @@
   <app-navbar></app-navbar>
   <mat-progress-bar *ngIf=loaderSpinner mode="indeterminate"></mat-progress-bar>
   <a *ngIf=error class="mat-elevation-z8 errorInfo">{{errorMessaje}}</a>
+  <div>
+    <mat-chip-listbox aria-label="Fish selection">
+      <mat-chip-option (click)="ordenarNormal()">Ordenar Nombre A-Z</mat-chip-option>
+      <mat-chip-option (click)="ordenarContrario()">Ordenar Nombre Z-A</mat-chip-option>
+    </mat-chip-listbox>
+  
+  </div>
   <table mat-table *ngIf=showTable [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 demo-table">
     <ng-container matColumnDef="codSubject">
         <th mat-header-cell *matHeaderCellDef> Código </th>
