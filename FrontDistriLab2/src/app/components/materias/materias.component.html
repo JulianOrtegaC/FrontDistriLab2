@@ -1,6 +1,6 @@
 <div class="general">
   <app-navbar></app-navbar>
-  <mat-spinner *ngIf=loaderSpinner class="mat-elevation-z8 errorInfo"></mat-spinner>
+  <mat-progress-bar *ngIf=loaderSpinner mode="indeterminate"></mat-progress-bar>
   <a *ngIf=error class="mat-elevation-z8 errorInfo">Error Al traer la información</a>
   <table mat-table *ngIf=showTable [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="codSubject">
@@ -26,5 +26,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator *ngIf=showPaginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSize]="10" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
   </div>
