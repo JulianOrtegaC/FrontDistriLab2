@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-//mport * as XLSX from 'xlsx';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { InscripcionService } from 'src/app/service/InscripcionesService';
 import { Inscripcion } from '../../models/Inscripcion';
+//import * as XLSX from 'xlsx';
 
 /*const ELEMENT_DATA: Inscripcion[] = [
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
@@ -32,7 +32,7 @@ export class InscripcionComponent implements OnInit {
   constructor(public inscripcionService: InscripcionService){}
 
   exportToExcel() {
-    exportToExcel();
+    //exportToExcel();
   }
   
   ngOnInit(): void {
@@ -67,12 +67,12 @@ export class InscripcionComponent implements OnInit {
   paginator!: MatPaginator;
 }
 
-export function exportToExcel(): void {
-  /*const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(ELEMENT_DATA);
+/*export function exportToExcel(): void {
+  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(null);
   const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
   const excelBuffer: any = XLSX.write(workbook, { bookType: 'xls', type: 'array' });
-  saveAsExcelFile(excelBuffer, 'data');*/
-}
+  saveAsExcelFile(excelBuffer, 'data');
+}*/
 
 export function saveAsExcelFile(buffer: any, fileName: string): void {
   const data: Blob = new Blob([buffer], {type: 'application/vnd.ms-excel'});
