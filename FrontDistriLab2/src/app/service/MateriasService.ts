@@ -20,6 +20,18 @@ export class MateriasService {
         return this.http.get(this.baseUrl + '/getSubjectNormal');
     }
 
+    getMateriasFilterEstado(): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectFilterState');
+    }
+
+    getMateriasFilterCode(): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectFilterCod');
+    }
+
+    getMateriasByCode(numberCode: number): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubject/' + numberCode);
+    }
+
     getFilterDecending(): Observable<any> {
         return this.http.get(this.baseUrl + '/getSubjectDecending');
     }
