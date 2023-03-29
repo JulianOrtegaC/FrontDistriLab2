@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { InscripcionService } from 'src/app/service/InscripcionesService';
 import { Inscripcion } from '../../models/Inscripcion';
+import { DialogInscripcionComponent } from './DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
 //import * as XLSX from 'xlsx';
 
 /*const ELEMENT_DATA: Inscripcion[] = [
@@ -25,11 +27,11 @@ export class InscripcionComponent implements OnInit {
   showTable = false;
   showPaginator = false;
   error = false;
-
+  errorMessaje = "Error en la inscripcion";
   displayedColumns: string[] = ['idInscription', 'codStudent', 'codSubject', 'dateRegistration']
   dataSource = new MatTableDataSource<Inscripcion>();
 
-  constructor(public inscripcionService: InscripcionService){}
+  constructor(public inscripcionService: InscripcionService,  public dialog: MatDialog){}
 
   exportToExcel() {
     //exportToExcel();
@@ -37,6 +39,22 @@ export class InscripcionComponent implements OnInit {
   
   ngOnInit(): void {
     this.getInscripcion();
+  }
+
+  editRow(row: Inscripcion) {
+    const dialogRef = this.dialog.open(DialogInscripcionComponent, {
+      data: row,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.inscripcionService.updateInscripcion(result).subscribe(data => {
+        this.getInscripcion()
+      })
+    },
+      error => {
+        this.error = true;
+        this.errorMessaje = "Error al momento de actualizar materia, vuelva a intentarlo.";
+      });
   }
 
   getInscripcion() {
@@ -82,3 +100,4 @@ export function saveAsExcelFile(buffer: any, fileName: string): void {
   link.download = fileName + '.xls';
   link.click();
 }
+

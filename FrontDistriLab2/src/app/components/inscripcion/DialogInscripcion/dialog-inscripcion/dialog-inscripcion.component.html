@@ -1,0 +1,24 @@
+<div mat-dialog-content>
+    <p>Agrega una materia:</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Código Materia</mat-label>
+        <input disabled="true" matInput [(ngModel)]="inscripcion.idInscription">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre materia</mat-label>
+        <input matInput [(ngModel)]="inscripcion.idInscription">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Creditos</mat-label>
+        <input matInput [(ngModel)]="inscripcion.codStudent">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <input matInput [(ngModel)]="inscripcion.codSubject">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
+    <button mat-raised-button [mat-dialog-close]="inscripcion" cdkFocusInitial>Agregar</button>
+</div>
