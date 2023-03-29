@@ -68,6 +68,45 @@ export class MateriasComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  ordenarContrario() {
+    this.materiasService.getFilterDecending().subscribe(data => {
+      this.dataSource = new MatTableDataSource<Materias>(data);
+      this.dataSource.paginator = this.paginator;
+      this.loaderSpinner = false;
+      this.error = false;
+      this.showTable = true;
+      this.showPaginator = (this.dataSource.data.length > 0);
+    },
+      error => {
+        this.loaderSpinner = false;
+        this.error = true;
+        this.showTable = false;
+        this.showPaginator = false;
+        this.errorMessaje = "Error al obtener Materias";
+        console.error("error es: " + error);
+      });
+  }
+
+  ordenarNormal() {
+    this.materiasService.getMateriasFilterNormal().subscribe(data => {
+      this.dataSource = new MatTableDataSource<Materias>(data);
+      this.dataSource.paginator = this.paginator;
+      this.loaderSpinner = false;
+      this.error = false;
+      this.showTable = true;
+      this.showPaginator = (this.dataSource.data.length > 0);
+    },
+      error => {
+        this.loaderSpinner = false;
+        this.error = true;
+        this.showTable = false;
+        this.showPaginator = false;
+        this.errorMessaje = "Error al ordenar materias intentelo de nuevo";
+        console.error("error es: " + error);
+      });
+
+  }
+
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 }
