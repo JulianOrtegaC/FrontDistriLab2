@@ -2,21 +2,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 //mport * as XLSX from 'xlsx';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { InscripcionService } from 'src/app/service/InscripcionesService';
+import { Inscripcion } from '../../models/Inscripcion';
 
-export interface Inscripcion {
-  id_inscripcion: number;
-  cod_materia: number;
-  cod_estudiante: string;
-}
-
-const ELEMENT_DATA: Inscripcion[] = [
+/*const ELEMENT_DATA: Inscripcion[] = [
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
   {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'}
-];
+];*/
 
 @Component({
   selector: 'app-estudiantes',
@@ -25,15 +21,41 @@ const ELEMENT_DATA: Inscripcion[] = [
 })
 
 export class InscripcionComponent implements OnInit {
-  displayedColumns: string[] = ['ID_INSCRIPCION', 'CODIGO_MATERIA', 'CODIGO_ESTUDIANTE']
-  //dataSource: Inscripcion[] = ELEMENT_DATA;
-  dataSource = new MatTableDataSource<Inscripcion>(ELEMENT_DATA);
+  loaderSpinner = false;
+  showTable = false;
+  showPaginator = false;
+  error = false;
+
+  displayedColumns: string[] = ['idInscription', 'codStudent', 'codSubject', 'dateRegistration']
+  dataSource = new MatTableDataSource<Inscripcion>();
+
+  constructor(public inscripcionService: InscripcionService){}
 
   exportToExcel() {
     exportToExcel();
   }
   
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getInscripcion();
+  }
+
+  getInscripcion() {
+    this.loaderSpinner = true;
+    this.inscripcionService.getInscripcion().subscribe(data => {
+      this.dataSource = new MatTableDataSource<Inscripcion>(data);
+      this.dataSource.paginator = this.paginator;
+      this.loaderSpinner = false;
+      this.error = false;
+      this.showTable = true;
+      this.showPaginator = (this.dataSource.data.length > 0);
+    },
+      error => {
+        this.loaderSpinner = false;
+        this.error = true;
+        this.showTable = false;
+        this.showPaginator = false;
+        console.error("error es: " + error);
+      });
   }
 
   ngAfterViewInit() {
@@ -60,4 +82,3 @@ export function saveAsExcelFile(buffer: any, fileName: string): void {
   link.download = fileName + '.xls';
   link.click();
 }
-
