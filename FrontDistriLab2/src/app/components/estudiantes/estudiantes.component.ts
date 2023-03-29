@@ -20,7 +20,7 @@ export class EstudiantesComponent implements OnInit {
   dataSource = new MatTableDataSource<Estudiantes>();
 
   constructor(public materiasService: EstudiantesService) {
-    this.getSubjects();
+    
    }
 
   ngOnInit(): void {
