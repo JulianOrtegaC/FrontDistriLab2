@@ -8,6 +8,7 @@ import { ResponseMateriasByCode } from 'src/app/models/ResponseMateriasByCode';
 import { MateriasService } from 'src/app/service/MateriasService';
 import { Materias } from '../../models/Materias';
 import { DialogAddSubjectComponent } from './dialogs/dialog-add-subject/dialog-add-subject.component';
+import { DialogAddSubjectsCompleteComponent } from './dialogs/dialog-add-subjects-complete/dialog-add-subjects-complete.component';
 
 @Component({
   selector: 'app-materias',
@@ -60,6 +61,20 @@ export class MateriasComponent implements OnInit {
       error => {
         this.error = true;
         this.errorMessaje = "Error al momento de actualizar materia, vuelva a intentarlo.";
+      });
+  }
+
+  addRow() {
+    const dialogRef = this.dialog.open(DialogAddSubjectsCompleteComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.materiasService.addMateria(result).subscribe(data => {
+        this.getSubjects()
+      })
+    },
+      error => {
+        this.error = true;
+        this.errorMessaje = "Error al momento de agregar materia, vuelva a intentarlo.";
       });
   }
 

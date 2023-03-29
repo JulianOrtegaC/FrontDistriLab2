@@ -1,17 +1,12 @@
 <div mat-dialog-content>
-    <p>Actualizar una materia:</p>
+    <p>Agrega una materia:</p>
     <mat-form-field appearance="fill">
-        <mat-label>Código Materia</mat-label>
-        <input disabled="true" matInput [(ngModel)]="materias.codSubject">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-        <mat-label>Nombre materia</mat-label>
+        <mat-label style="color: white !important;">Nombre materia</mat-label>
         <input matInput [(ngModel)]="materias.nameSubject">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Creditos</mat-label>
-        <input matInput [(ngModel)]="materias.quotas">
+        <input matInput type="number" [(ngModel)]="materias.quotas">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Estado</mat-label>
@@ -20,5 +15,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
-    <button mat-raised-button [mat-dialog-close]="materias" cdkFocusInitial>Actualizar</button>
+    <button mat-raised-button [mat-dialog-close]="materias" cdkFocusInitial>Agregar</button>
 </div>

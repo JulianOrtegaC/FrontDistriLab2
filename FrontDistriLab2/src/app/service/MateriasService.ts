@@ -41,4 +41,8 @@ export class MateriasService {
         return this.http.put(this.baseUrl + "/editSubject", materia);
     }
 
+    addMateria(materia: Materias): Observable<any> {
+        return this.http.post(this.baseUrl + "/addSubject", materia);
+    }
+
 }

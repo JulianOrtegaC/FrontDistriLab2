@@ -20,6 +20,7 @@ import { MateriasComponent } from './components/materias/materias.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { SharedModule } from './shared/shared.module';
+import { DialogAddSubjectsCompleteComponent } from './components/materias/dialogs/dialog-add-subjects-complete/dialog-add-subjects-complete.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SharedModule } from './shared/shared.module';
     EstudiantesComponent,
     NavbarComponent,
     DialogAddSubjectComponent,
-    DialogInscripcionComponent
+    DialogInscripcionComponent,
+    DialogAddSubjectsCompleteComponent
   ],
   imports: [
     BrowserModule,
