@@ -17,6 +17,7 @@ export class MateriasComponent implements OnInit {
   error = false;
 
   displayedColumns: string[] = ['codSubject', 'nameSubject', 'quotas', 'statusSubject']
+  columnsToDisplayWithExpand = [this.displayedColumns, 'expand'];
   dataSource = new MatTableDataSource<Materias>();
 
   constructor(public materiasService: MateriasService) { }
@@ -29,6 +30,8 @@ export class MateriasComponent implements OnInit {
     this.loaderSpinner = true;
     this.materiasService.getMaterias().subscribe(data => {
       this.dataSource = new MatTableDataSource<Materias>(data);
+      this.dataSource.paginator = this.paginator;
+
       this.loaderSpinner = false;
       this.error = false;
       this.showTable = true;
