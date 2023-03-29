@@ -1,7 +1,12 @@
+
+.container{
+    padding: 10px;
+    background-color: white;
+    width: 850px;
+    height: 500px;
+}
 .FormularioCrear{
-    width: 700px;
-    height: 800px;
-    background-color: aqua;
+    background-color: white;
 }
 
 .select{
@@ -12,13 +17,28 @@
     border: none;
 }
 .TipoP{
-    width: 80%;
+    width: 50%;
     display: flex;
     margin-left: 10%;
     width: 80%;
     height: 40px;
 }
+.conInputs{
+    background-color: #FCC728;
+    display: inline;
+}
+.conText{
+    display: flex;
+}
+.conText h3{
+    display: inline;
+    margin: auto;
+}
+form{
+    display: inline;
+}
 form input{
+    display: inline;
     font-family: 'Muli', sans-serif;
     padding: 10px;
     margin-bottom: 10px;
@@ -30,6 +50,7 @@ form input{
       color: #FCC728;
   }
   input[type="submit"]{
+    display: flex;
     font-family: 'Muli', sans-serif;
     background-color: #fff;
     border: solid 1px #d1d1d1;
