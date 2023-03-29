@@ -40,6 +40,7 @@ export class InscripcionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.inscripcionService.updateInscripcion(result).subscribe(data => {
+        alert("SE REALIZARON LOS CAMBIOS EN EL RESGISTRO")
         this.getInscripcion()
       })
     },

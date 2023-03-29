@@ -19,4 +19,8 @@ export class InscripcionService {
     updateInscripcion(inscripcion: Inscripcion): Observable<any> {
         return this.http.put(this.baseUrl + "/editInscription", inscripcion);
     }
+
+    addInscription(inscripcion: Inscripcion): Observable<any>{
+        return this.http.post(this.baseUrl + "/addInscription", inscripcion);
+    }
 }
