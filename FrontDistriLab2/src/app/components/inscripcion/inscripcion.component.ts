@@ -28,9 +28,6 @@ export class InscripcionComponent implements OnInit {
   displayedColumns: string[] = ['ID_INSCRIPCION', 'CODIGO_MATERIA', 'CODIGO_ESTUDIANTE']
   //dataSource: Inscripcion[] = ELEMENT_DATA;
   dataSource = new MatTableDataSource<Inscripcion>(ELEMENT_DATA);
-  constructor(){
-
-  }
 
   exportToExcel() {
     exportToExcel();
@@ -41,6 +38,7 @@ export class InscripcionComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.paginator.pageIndex = 0;
   }
 
   @ViewChild(MatPaginator)
