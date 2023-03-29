@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-spinner *ngIf="!loader"></mat-spinner>
+
+<table mat-table *ngIf="loader" [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="codigo">
       <th mat-header-cell *matHeaderCellDef> Codigo </th>

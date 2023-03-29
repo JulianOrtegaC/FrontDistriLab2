@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from "@angular/common/http";
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     MatTableModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     SharedModule,
     AppRoutingModule,
     MatPaginatorModule

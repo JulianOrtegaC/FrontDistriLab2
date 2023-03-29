@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: "root"
@@ -10,10 +11,8 @@ export class MateriasService {
 
     constructor(private http: HttpClient) { }
 
-    getMaterias() {
-        this.http.get(this.baseUrl + '/getSubject').subscribe(data => {
-            console.log('dataaaaa' + data.toString);
-        });
+    getMaterias(): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubject');
     }
 
 }

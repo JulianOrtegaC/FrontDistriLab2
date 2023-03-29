@@ -6,3 +6,7 @@
 .contenedorTabla{
   width: 80%;
 }
+
+.loader {
+  margin: 10px;
+}
