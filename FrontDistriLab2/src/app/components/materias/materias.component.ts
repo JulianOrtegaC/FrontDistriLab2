@@ -15,7 +15,6 @@ export class MateriasComponent implements OnInit {
   showTable = false;
   showPaginator = false;
   error = false;
-
   displayedColumns: string[] = ['codSubject', 'nameSubject', 'quotas', 'statusSubject']
   dataSource = new MatTableDataSource<Materias>();
 
