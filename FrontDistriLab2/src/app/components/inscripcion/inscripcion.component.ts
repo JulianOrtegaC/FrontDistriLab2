@@ -7,15 +7,6 @@ import { Inscripcion } from '../../models/Inscripcion';
 import { DialogInscripcionComponent } from './DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
 //import * as XLSX from 'xlsx';
 
-/*const ELEMENT_DATA: Inscripcion[] = [
-  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
-  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
-  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
-  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
-  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'},
-  {id_inscripcion: 1, cod_materia: 11121, cod_estudiante: '20191299'}
-];*/
-
 @Component({
   selector: 'app-estudiantes',
   templateUrl: './inscripcion.component.html',
@@ -29,6 +20,7 @@ export class InscripcionComponent implements OnInit {
   error = false;
   errorMessaje = "Error en la inscripcion";
   displayedColumns: string[] = ['idInscription', 'codStudent', 'codSubject', 'dateRegistration']
+  columnsToDisplayWithExpand = [this.displayedColumns, 'expand'];
   dataSource = new MatTableDataSource<Inscripcion>();
 
   constructor(public inscripcionService: InscripcionService,  public dialog: MatDialog){}
@@ -53,7 +45,7 @@ export class InscripcionComponent implements OnInit {
     },
       error => {
         this.error = true;
-        this.errorMessaje = "Error al momento de actualizar materia, vuelva a intentarlo.";
+        this.errorMessaje = "Error al momento de actualizar la inscripción, vuelva a intentarlo.";
       });
   }
 
