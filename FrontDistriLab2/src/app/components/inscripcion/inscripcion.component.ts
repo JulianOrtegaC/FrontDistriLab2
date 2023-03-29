@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
-import * as XLSX from 'xlsx';
+import { Component, OnInit, ViewChild } from '@angular/core';
+//mport * as XLSX from 'xlsx';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -46,10 +46,10 @@ export class InscripcionComponent implements OnInit {
 }
 
 export function exportToExcel(): void {
-  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(ELEMENT_DATA);
+  /*const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(ELEMENT_DATA);
   const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
   const excelBuffer: any = XLSX.write(workbook, { bookType: 'xls', type: 'array' });
-  saveAsExcelFile(excelBuffer, 'data');
+  saveAsExcelFile(excelBuffer, 'data');*/
 }
 
 export function saveAsExcelFile(buffer: any, fileName: string): void {
