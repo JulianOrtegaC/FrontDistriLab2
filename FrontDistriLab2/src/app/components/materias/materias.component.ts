@@ -11,18 +11,36 @@ import { Materias } from '../../models/Materias';
 })
 export class MateriasComponent implements OnInit {
 
-  loader = false;
+  loaderSpinner = false;
+  showTable = false;
+  showPaginator = false;
+  error = false;
+
   displayedColumns: string[] = ['codigo', 'NameSubject', 'Quotas', 'StatusSubject']
   dataSource = new MatTableDataSource<Materias>();
 
   constructor(public materiasService: MateriasService) { }
 
   ngOnInit(): void {
-    this.loader = true;
+    this.getSubjects();
+  }
+
+  getSubjects() {
+    this.loaderSpinner = true;
     this.materiasService.getMaterias().subscribe(data => {
       this.dataSource = new MatTableDataSource<Materias>(data);
-      this.loader = false;
-    });
+      this.loaderSpinner = false;
+      this.error = false;
+      this.showTable = true;
+      this.showPaginator = (this.dataSource.data.length > 0);
+    },
+      error => {
+        this.loaderSpinner = false;
+        this.error = true;
+        this.showTable = false;
+        this.showPaginator = false;
+        console.error("error es: " + error);
+      });
   }
 
   ngAfterViewInit() {

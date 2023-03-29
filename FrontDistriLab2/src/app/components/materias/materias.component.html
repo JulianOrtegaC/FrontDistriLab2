@@ -1,30 +1,30 @@
-<app-navbar></app-navbar>
-<mat-spinner *ngIf="!loader"></mat-spinner>
-
-<table mat-table *ngIf="loader" [dataSource]="dataSource" class="mat-elevation-z8">
-
+<div class="general">
+  <app-navbar></app-navbar>
+  <mat-spinner *ngIf=loaderSpinner class="mat-elevation-z8 errorInfo"></mat-spinner>
+  <a *ngIf=error class="mat-elevation-z8 errorInfo">Error Al traer la información</a>
+  <table mat-table *ngIf=showTable [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="codigo">
-      <th mat-header-cell *matHeaderCellDef> Codigo </th>
-      <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+        <th mat-header-cell *matHeaderCellDef> Código </th>
+        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
     </ng-container>
-  
+        
     <ng-container matColumnDef="NameSubject">
-      <th mat-header-cell *matHeaderCellDef> nombre Materia </th>
-      <td mat-cell *matCellDef="let element"> {{element.NameSubject}} </td>
+        <th mat-header-cell *matHeaderCellDef> Nombre Materia </th>
+        <td mat-cell *matCellDef="let element"> {{element.NameSubject}} </td>
     </ng-container>
-  
+        
     <ng-container matColumnDef="Quotas">
       <th mat-header-cell *matHeaderCellDef> Quotas </th>
       <td mat-cell *matCellDef="let element"> {{element.Quotas}} </td>
     </ng-container>
-  
+        
     <ng-container matColumnDef="StatusSubject">
       <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
       <td mat-cell *matCellDef="let element"> {{element.StatusSubject}} </td>
     </ng-container>
-  
-
+        
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  <mat-paginator *ngIf=showPaginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  </div>

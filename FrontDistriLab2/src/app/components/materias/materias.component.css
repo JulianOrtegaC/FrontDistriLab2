@@ -6,7 +6,19 @@
 .contenedorTabla{
   width: 80%;
 }
-
+.general {
+  background-color: #424242 !important;
+}
 .loader {
   margin: 10px;
+}
+.errorInfo {
+  width: 100%;
+  display: block;
+  text-align: center !important;
+  font-size: 30px !important;
+  color: white !important;
+  background-color: #424242 !important;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
