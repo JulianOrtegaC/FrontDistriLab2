@@ -1,51 +1,62 @@
 <app-navbar></app-navbar>
 <div class="contenedorfiltro_tabla">
+    <div class="formularios">
+      <form class="" action="#" method="post">
+        <h3>Codigo:</h3>
+        <input type="text" name="mes" value="" placeholder="código">
+        <h3>Ingresos:</h3>
+        <input type="text" name="remeras" value="" placeholder="Remeras...">
+        <input type="text" name="pantalones" value="" placeholder="Pantalones...">
+        <input type="text" name="buzos" value="" placeholder="Buzos...">
+        <input type="submit" name="enviar" value="Enviar" class="botonEnviar">
+  
+      </form>
+  
+  </div>
   <div class="contenedorTabla">
 
-    <div >
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="codigo">
+        <ng-container matColumnDef="codStudent">
           <th mat-header-cell *matHeaderCellDef> Codigo </th>
-          <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.codStudent}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="firstNameStudent">
           <th mat-header-cell *matHeaderCellDef> nombre Materia </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.firstNameStudent}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="apellido">
+        <ng-container matColumnDef="lastNameStudent">
           <th mat-header-cell *matHeaderCellDef> Quotas </th>
-          <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.lastNameStudent}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="type_doc">
+        <ng-container matColumnDef="typeDocument">
           <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
-          <td mat-cell *matCellDef="let element"> {{element.type_doc}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.typeDocument}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="doc">
+        <ng-container matColumnDef="numDocument">
           <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
-          <td mat-cell *matCellDef="let element"> {{element.doc}} </td>
-        </ng-container>
-      
-    
-        <ng-container matColumnDef="estado">
-          <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
-          <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.numDocument}} </td>
         </ng-container>
       
     
-        <ng-container matColumnDef="genero">
+        <ng-container matColumnDef="statusStudent">
           <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
-          <td mat-cell *matCellDef="let element"> {{element.genero}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.statusStudent}} </td>
+        </ng-container>
+      
+    
+        <ng-container matColumnDef="genderStudent">
+          <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
+          <td mat-cell *matCellDef="let element"> {{element.genderStudent}} </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     
-    </div>
 </div>
 </div>

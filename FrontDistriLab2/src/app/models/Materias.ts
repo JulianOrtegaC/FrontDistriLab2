@@ -1,7 +1,17 @@
 
 export interface Materias {
-    codigo: number;
-    NameSubject: string;
-    Quotas: number;
-    StatusSubject: string;
+    codSubject: number;
+    nameSubject: string;
+    quotas: number;
+    statusSubject: string;
+    
+}
+export interface Estudiantes{
+    codStudent:number;
+    firstNameStudent:string;
+    lastNameStudent:string;
+    typeDocument:string;
+    numDocument:string;
+    statusStudent:string;
+    genderStudent:string;
 }

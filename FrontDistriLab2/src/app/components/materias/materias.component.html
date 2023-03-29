@@ -3,24 +3,24 @@
   <mat-spinner *ngIf=loaderSpinner class="mat-elevation-z8 errorInfo"></mat-spinner>
   <a *ngIf=error class="mat-elevation-z8 errorInfo">Error Al traer la información</a>
   <table mat-table *ngIf=showTable [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="codigo">
+    <ng-container matColumnDef="codSubject">
         <th mat-header-cell *matHeaderCellDef> Código </th>
-        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.codSubject}} </td>
     </ng-container>
         
-    <ng-container matColumnDef="NameSubject">
+    <ng-container matColumnDef="nameSubject">
         <th mat-header-cell *matHeaderCellDef> Nombre Materia </th>
-        <td mat-cell *matCellDef="let element"> {{element.NameSubject}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.nameSubject}} </td>
     </ng-container>
         
-    <ng-container matColumnDef="Quotas">
+    <ng-container matColumnDef="quotas">
       <th mat-header-cell *matHeaderCellDef> Quotas </th>
-      <td mat-cell *matCellDef="let element"> {{element.Quotas}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.quotas}} </td>
     </ng-container>
         
-    <ng-container matColumnDef="StatusSubject">
+    <ng-container matColumnDef="statusSubject">
       <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
-      <td mat-cell *matCellDef="let element"> {{element.StatusSubject}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.statusSubject}} </td>
     </ng-container>
         
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
