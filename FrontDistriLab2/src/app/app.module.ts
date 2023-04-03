@@ -18,6 +18,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { SharedModule } from './shared/shared.module';
 import { DialogInscripcionComponent } from './components/inscripcion/DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
+import { CommonModule } from '@angular/common';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +44,15 @@ import { DialogInscripcionComponent } from './components/inscripcion/DialogInscr
     MatDialogModule,
     SharedModule,
     AppRoutingModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

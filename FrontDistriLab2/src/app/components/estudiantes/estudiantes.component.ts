@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { EstudiantesService } from 'src/app/service/EstudiantesService';
 import { Estudiantes } from '../../models/Materias';
+import { DialogCrearEstudiante } from './dialogs/dialogCrearEstudiante';
 
 @Component({
   selector: 'app-estudiantes',
@@ -19,13 +21,26 @@ export class EstudiantesComponent implements OnInit {
 
   displayedColumns: string[] = ['codStudent', 'firstNameStudent', 'lastNameStudent', 'typeDocument', 'numDocument', 'statusStudent', 'genderStudent']
   dataSource = new MatTableDataSource<Estudiantes>();
-
-  constructor(public materiasService: EstudiantesService,public dialog: MatDialog) {
+  errorMessaje = "Error en los Estudiantes";
+  constructor(public estudianteService: EstudiantesService,public dialog: MatDialog) {
     
    }
-   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogCrearEstudiante);
+  addStudent() {
+    const dialogRef = this.dialog.open(DialogCrearEstudiante, {
+  
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.estudianteService.crearEstudiante(result).subscribe(data => {
+        this.getStudent()
+      })
+    },
+      error => {
+        this.error = true;
+        this.errorMessaje = "Error al momento de actualizar materia, vuelva a intentarlo.";
+      });
   }
+
   ngOnInit(): void {
     this.getStudent();
     
@@ -33,7 +48,7 @@ export class EstudiantesComponent implements OnInit {
 
   getStudent() {
     this.loaderSpinner = true;
-    this.materiasService.getStudent().subscribe(data => {
+    this.estudianteService.getStudent().subscribe(data => {
       this.dataSource = new MatTableDataSource<Estudiantes>(data);
       this.dataSource.paginator = this.paginator;
       this.loaderSpinner = false;
@@ -56,17 +71,5 @@ export class EstudiantesComponent implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
 }
-
-
-@Component({
-  selector: 'DialogCrearEstudiante',
-  templateUrl: './dialogCrearEstudiante.html',
-  styleUrls: ['./dialogCrear.css']
-})
-export class DialogCrearEstudiante {
-  constructor(public dialogRef: MatDialogRef<DialogCrearEstudiante>) {}
-}
-
-
-

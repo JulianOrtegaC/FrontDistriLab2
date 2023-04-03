@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 <div class="contenedorfiltro_tabla">
     <div class="formularios">
-      <form class="" action="#" method="post">
         <h3>Codigo:</h3>
         <input type="text" name="mes" value="" placeholder="código">
         <h3>Ingresos:</h3>
@@ -10,10 +9,11 @@
         <input type="text" name="buzos" value="" placeholder="Buzos...">
         <input type="submit" name="enviar" value="Enviar" class="botonEnviar">
   
-      </form>
   </div>
+  <!-- <app-crear-nuevo-estudiante *ngIf="gService.showModal"></app-crear-nuevo-estudiante> -->
   <div class="card-container">
-    <button class="card card-small" (click)="openDialog('0ms', '0ms')" >
+    <!-- <button class="card card-small" (click)="openDialog()" > -->
+      <button class="card card-small" (click)="addStudent()" >
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
       <span> Agregar  Estudiante</span>
     </button>
