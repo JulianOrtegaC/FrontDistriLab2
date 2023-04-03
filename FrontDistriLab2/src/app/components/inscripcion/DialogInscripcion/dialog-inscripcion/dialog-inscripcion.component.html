@@ -1,21 +1,21 @@
 <div mat-dialog-content>
-    <p>Agrega una materia:</p>
+    <p>Modificar Inscripción</p>
     <mat-form-field appearance="fill">
-        <mat-label>Código Materia</mat-label>
+        <mat-label>ID INSCRIPCIÓN</mat-label>
         <input disabled="true" matInput [(ngModel)]="inscripcion.idInscription">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Nombre materia</mat-label>
-        <input matInput [(ngModel)]="inscripcion.idInscription">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Creditos</mat-label>
+        <mat-label>CODIGO ESTUDIANTE</mat-label>
         <input matInput [(ngModel)]="inscripcion.codStudent">
     </mat-form-field>
     <mat-form-field appearance="fill">
-        <mat-label>Estado</mat-label>
+        <mat-label>CODIGO MATERIA</mat-label>
         <input matInput [(ngModel)]="inscripcion.codSubject">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>FECHA INSCRIPCIÓN</mat-label>
+        <input matInput [(ngModel)]="inscripcion.dateRegistration">
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
