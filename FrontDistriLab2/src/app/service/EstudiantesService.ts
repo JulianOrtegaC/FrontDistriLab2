@@ -8,16 +8,18 @@ import { Estudiantes } from "../models/Materias";
 })
 export class EstudiantesService {
 
-    baseUrl: string = 'https://localhost:7111/student'
+   private myAppUrl: string ='https://localhost:7111/Student/';
 
     constructor(private http: HttpClient) { }
 
     getStudent(): Observable<any> {
-        return this.http.get(this.baseUrl + '/getStudent');
+        return this.http.get(`${this.myAppUrl}getStudent`);
     }
 
     crearEstudiante(estudiante: Estudiantes): Observable<any> {
-        return this.http.put(this.baseUrl + "/addStudent", estudiante);
+        console.log(estudiante);
+        return this.http.post("https://localhost:7111/Student/addStudent", estudiante);
+        // return this.http.post(`${this.myAppUrl}addStudent`, estudiante);
     }
 
 }
