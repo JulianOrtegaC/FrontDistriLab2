@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -22,6 +21,12 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { DialogAddSubjectsCompleteComponent } from './components/materias/dialogs/dialog-add-subjects-complete/dialog-add-subjects-complete.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreacionEstudiantesComponent } from './components/creacion-estudiantes/creacion-estudiantes.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +38,8 @@ import { DialogAddSubjectsCompleteComponent } from './components/materias/dialog
     NavbarComponent,
     DialogAddSubjectComponent,
     DialogInscripcionComponent,
-    DialogAddSubjectsCompleteComponent
+    DialogAddSubjectsCompleteComponent,
+    CreacionEstudiantesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,19 +52,20 @@ import { DialogAddSubjectsCompleteComponent } from './components/materias/dialog
     MatInputModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     MatPaginatorModule,
     ReactiveFormsModule,
-    FormsModule,
-    CommonModule
+    CommonModule,
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

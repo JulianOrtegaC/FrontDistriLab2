@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -21,14 +20,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { BrowserModule } from '@angular/platform-browser';
-
-
-
-
-
-
-
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -60,11 +52,10 @@ import { BrowserModule } from '@angular/platform-browser';
     MatSortModule,
     MatDialogModule,
     HttpClientModule,
-    FormsModule,
     MatToolbarModule,
     MatDatepickerModule,
     MatSelectModule,
-    BrowserModule
+    MatInputModule
   ],
   exports: [CommonModule,
     MatIconModule,
@@ -82,10 +73,10 @@ import { BrowserModule } from '@angular/platform-browser';
     MatSortModule,
     MatDialogModule ,
     HttpClientModule,
-    FormsModule,
     MatToolbarModule,
     MatDatepickerModule,
-    MatSelectModule,BrowserModule
+    MatSelectModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }

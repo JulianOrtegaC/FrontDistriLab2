@@ -1,11 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { EstudiantesService } from 'src/app/service/EstudiantesService';
 import { Estudiantes } from '../../models/Materias';
-import { DialogCrearEstudiante } from './dialogs/dialogCrearEstudiante';
 
 @Component({
   selector: 'app-estudiantes',
@@ -22,24 +19,9 @@ export class EstudiantesComponent implements OnInit {
   displayedColumns: string[] = ['codStudent', 'firstNameStudent', 'lastNameStudent', 'typeDocument', 'numDocument', 'statusStudent', 'genderStudent']
   dataSource = new MatTableDataSource<Estudiantes>();
   errorMessaje = "Error en los Estudiantes";
-  constructor(public estudianteService: EstudiantesService,public dialog: MatDialog) {
+  constructor(public estudianteService: EstudiantesService) {
     
    }
-  addStudent() {
-    const dialogRef = this.dialog.open(DialogCrearEstudiante, {
-  
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.estudianteService.crearEstudiante(result).subscribe(data => {
-        this.getStudent()
-      })
-    },
-      error => {
-        this.error = true;
-        this.errorMessaje = "Error al momento de actualizar materia, vuelva a intentarlo.";
-      });
-  }
 
   ngOnInit(): void {
     this.getStudent();

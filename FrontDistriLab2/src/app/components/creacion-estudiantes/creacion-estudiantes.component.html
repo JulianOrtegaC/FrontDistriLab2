@@ -1,12 +1,8 @@
+<app-navbar></app-navbar>
 <div class="container">
     
     <div class="FormularioCrear">
     <form >
-            <div class="inpCod">
-                <h3>Codigo:</h3>
-                <input type="text" name="mes" value="" placeholder="código" >
-            </div>
-            <br>
             <div class="conInputs">
                 <div class="conText">
                     <h3>Nombre Estudiante:</h3>
@@ -14,8 +10,9 @@
                 </div>
                 <br>
                 <div class="conText">
-                    <input type="text" name="mes" value="" placeholder="Nombre" >
-                    <input type="text" name="mes" value="" placeholder="Apellido" >
+                    <input type="text" [(ngModel)]="firstNameStudent" name="firstNameStudent">
+
+                    <input type="text" name="lastNameStudent"  placeholder="Apellido"[(ngModel)]="lastNameStudent"  required minlength="3" maxlength="50" >
                 </div>
             </div>
     
@@ -23,7 +20,7 @@
               
             </div>
             <h3>Tipo de Documento:</h3>
-            <select class="select TipoP"  formControlName="TipoDeDocumento"  formControlName="typeDocument">
+            <select class="select TipoP" name="typeDocument" [(ngModel)]="typeDocument" required>
                 <option value="" disabled> Seleccione el Tipo de Documento</option>
                 <option value="CC">Cédula de Ciudadania</option>
                 <option value="TI">Tarjeta de Identidad</option>
@@ -33,26 +30,26 @@
             <div class="inpCod">
     
                 <h3>Numero de Documento:</h3>
-                <input class="inpCod" type="text" name="mes" value="" placeholder="Numero de Documento"  formControlName="numDocument">
+                <input class="inpCod" type="text" name="numDocument" value="" placeholder="Numero de Documento"  [(ngModel)]="numDocument" required>
             </div>
             <div class="conInputs">
                 <div class="conText">
                     <h3>Estado del Estudiante:</h3>
                     <h3>Genero del Estudiante:</h3>
                 </div>
-                <select class="select TipoP"  formControlName="TipoEstado"  formControlName="statusStudent">
+                <select class="select TipoP" name="statusStudent"  [(ngModel)]="statusStudent" required>
                     <option value="" disabled> Seleccione el Tipo de Estado del Estudiante</option>
-                    <option value="Dominico-hartón">Activo</option>
-                    <option value="Dominico-hartón">Suspendido</option>
+                    <option value="A">Activo</option>
+                    <option value="S">Suspendido</option>
                 </select>        
-                <select class="select TipoP"  formControlName="genderStudent">
+                <select class="select TipoP" name="genderStudent" [(ngModel)]="genderStudent" required>
                     <option value="" disabled> Seleccione el Genero</option>
                     <option value="Hombre">Hombre</option>
                     <option value="Mujer">Mujer</option>
                 </select>
             </div>
             <div class="botonEnvi">
-                <button type="button" class="btn-enviar" (click)="crearNuevoEstudiante()">Confirmar</button>
+                <button type="button" class="btn-enviar" [disabled]="!CreacionEstudiantes" (click)="crearNuevoEstudiante()">Confirmar</button>
             </div>
           </form>
     </div> 
