@@ -1,3 +1,4 @@
+
 <div class="general">
   <app-navbar></app-navbar>
   <mat-progress-bar *ngIf=loaderSpinner mode="indeterminate"></mat-progress-bar>
@@ -6,7 +7,7 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Buscar Materia por código</mat-label>
-      <input type="number" matInput [(ngModel)]="valueCod" [formControl]="codFormControl" [errorStateMatcher]="matcher"
+      <input type="number" class="inputBuscarCodigo" matInput [(ngModel)]="valueCod" [formControl]="codFormControl" [errorStateMatcher]="matcher"
         placeholder="Ex. 100126">
       <mat-error *ngIf="codFormControl.hasError('codigo') && !codFormControl.hasError('required')">
         Por favor valide el código

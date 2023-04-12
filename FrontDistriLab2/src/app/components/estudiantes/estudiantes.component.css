@@ -18,6 +18,14 @@
 .formularios form{
   margin: 50px;
 }
+.select{
+  background-color: #f0f0f0;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 0px;
+  border: none;
+  width: auto;
+}
 .formularios form input{
   font-family: 'Muli', sans-serif;
   padding: 10px;

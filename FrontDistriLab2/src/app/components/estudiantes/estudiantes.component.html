@@ -1,14 +1,63 @@
 <app-navbar></app-navbar>
 <div class="contenedorfiltro_tabla">
     <div class="formularios">
-        <h3>Codigo:</h3>
-        <input type="text" name="mes" value="" placeholder="código">
-        <h3>Ingresos:</h3>
-        <input type="text" name="remeras" value="" placeholder="Remeras...">
-        <input type="text" name="pantalones" value="" placeholder="Pantalones...">
-        <input type="text" name="buzos" value="" placeholder="Buzos...">
-        <input type="submit" name="enviar" value="Enviar" class="botonEnviar">
-  
+      <form>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="input1">Codigo </label>
+                    <input type="text" class="form-control" id="input1" placeholder="Codigo">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="input2">Nombre</label>
+                    <input type="text" class="form-control" id="input2" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="input3">Tipo Dodumento</label>
+                    <select class="select TipoP" name="typeDocument" required>
+                      <option  disabled> Seleccione el Tipo de Documento</option>
+                      <option value="CC">Cédula de Ciudadania</option>
+                      <option value="TI">Tarjeta de Identidad</option>
+                      <option value="CE"> Cédula de Extranjería</option>
+                      <option value="Pasaporte"> Pasaporte</option>
+                  </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="input4">Numero de Documento</label>
+                    <input type="text" class="form-control" id="input4" placeholder="Numero de Documento">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="input5">Estado</label>
+                    <select class="select" name="statusStudent"  required>
+                      <option value="" disabled>Select Tipo de Estado del Estudiante   </option>
+                      <option value="A">Activo</option>
+                      <option value="S">Suspendido</option>
+                  </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="input6">Genero</label>
+                    <select class="select" name="">
+                      <option value="" disabled> Seleccione el Genero Estudiante    </option>
+                      <option value="M">Hombre</option>
+                      <option value="F">Mujer</option>
+                  </select>   
+                </div>             
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
   </div>
   <!-- <app-crear-nuevo-estudiante *ngIf="gService.showModal"></app-crear-nuevo-estudiante> -->
   <div class="card-container">
@@ -28,34 +77,34 @@
         </ng-container>
       
         <ng-container matColumnDef="firstNameStudent">
-          <th mat-header-cell *matHeaderCellDef> nombre Materia </th>
+          <th mat-header-cell *matHeaderCellDef> nombre Estudiante </th>
           <td mat-cell *matCellDef="let element"> {{element.firstNameStudent}} </td>
         </ng-container>
       
         <ng-container matColumnDef="lastNameStudent">
-          <th mat-header-cell *matHeaderCellDef> Quotas </th>
+          <th mat-header-cell *matHeaderCellDef> Apellido </th>
           <td mat-cell *matCellDef="let element"> {{element.lastNameStudent}} </td>
         </ng-container>
       
         <ng-container matColumnDef="typeDocument">
-          <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
+          <th mat-header-cell *matHeaderCellDef> Tipo Documento </th>
           <td mat-cell *matCellDef="let element"> {{element.typeDocument}} </td>
         </ng-container>
       
         <ng-container matColumnDef="numDocument">
-          <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
+          <th mat-header-cell *matHeaderCellDef> Numero Documento </th>
           <td mat-cell *matCellDef="let element"> {{element.numDocument}} </td>
         </ng-container>
       
     
         <ng-container matColumnDef="statusStudent">
-          <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
+          <th mat-header-cell *matHeaderCellDef> Estado  </th>
           <td mat-cell *matCellDef="let element"> {{element.statusStudent}} </td>
         </ng-container>
       
     
         <ng-container matColumnDef="genderStudent">
-          <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
+          <th mat-header-cell *matHeaderCellDef> Genero </th>
           <td mat-cell *matCellDef="let element"> {{element.genderStudent}} </td>
         </ng-container>
       
