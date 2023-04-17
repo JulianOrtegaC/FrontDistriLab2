@@ -2,6 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Materias } from "../models/Materias";
+import { ResponseMaterias } from "../models/ResponseMaterias";
+
 
 @Injectable({
     providedIn: "root"
@@ -12,28 +14,28 @@ export class MateriasService {
 
     constructor(private http: HttpClient) { }
 
-    getMaterias(): Observable<any> {
-        return this.http.get(this.baseUrl + '/getSubject');
+    getMaterias(pagina:number): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubject?pagina='+pagina);
     }
 
-    getMateriasFilterNormal(): Observable<any> {
-        return this.http.get(this.baseUrl + '/getSubjectNormal');
+    getMateriasFilterNormal(pagina:number): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectNormal?pagina='+pagina);
     }
 
-    getMateriasFilterEstado(): Observable<any> {
-        return this.http.get(this.baseUrl + '/getSubjectFilterState');
+    getMateriasFilterEstado(pagina:number): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectFilterState?pagina='+pagina);
     }
 
-    getMateriasFilterCode(): Observable<any> {
-        return this.http.get(this.baseUrl + '/getSubjectFilterCod');
+    getMateriasFilterCode(pagina:number): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectFilterCod?pagina='+pagina);
     }
 
     getMateriasByCode(numberCode: number): Observable<any> {
         return this.http.get(this.baseUrl + '/getSubject/' + numberCode);
     }
 
-    getFilterDecending(): Observable<any> {
-        return this.http.get(this.baseUrl + '/getSubjectDecending');
+    getFilterDecending(pagina:number): Observable<any> {
+        return this.http.get(this.baseUrl + '/getSubjectDecending?pagina='+pagina);
     }
 
 
@@ -41,7 +43,7 @@ export class MateriasService {
         return this.http.put(this.baseUrl + "/editSubject", materia);
     }
 
-    addMateria(materia: Materias): Observable<any> {
+    addMateria(materia: ResponseMaterias): Observable<any> {
         return this.http.post(this.baseUrl + "/addSubject", materia);
     }
 

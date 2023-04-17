@@ -1,67 +1,74 @@
-
 <div class="general">
   <app-navbar></app-navbar>
   <mat-progress-bar *ngIf=loaderSpinner mode="indeterminate"></mat-progress-bar>
   <a *ngIf=error class="mat-elevation-z8 errorInfo">{{errorMessaje}}</a>
-<div class="marginTableForm">
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Buscar Materia por código</mat-label>
-      <input type="number" class="inputBuscarCodigo" matInput [(ngModel)]="valueCod" [formControl]="codFormControl" [errorStateMatcher]="matcher"
-        placeholder="Ex. 100126">
-      <mat-error *ngIf="codFormControl.hasError('codigo') && !codFormControl.hasError('required')">
-        Por favor valide el código
-      </mat-error>
-      <mat-error *ngIf="codFormControl.hasError('required')">
-        El codigo es <strong>requerido</strong>
-      </mat-error>
-    </mat-form-field>
-  </form>
-  <div class="buttonSearch">
-    <a mat-raised-button (click)='getSubjectByCod()'>Buscar</a>
-  </div>
-</div>
-
-<div class="marginTable">
-  <div class="buttonSearch">
-    <a mat-raised-button (click)='addRow()'>Agregar Materia</a>
+  <div class="marginTableForm">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Buscar Materia por código</mat-label>
+        <input type="number" class="inputBuscarCodigo" matInput [(ngModel)]="valueCod" [formControl]="codFormControl"
+          [errorStateMatcher]="matcher" placeholder="Ex. 100126">
+        <mat-error *ngIf="codFormControl.hasError('codigo') && !codFormControl.hasError('required')">
+          Por favor valide el código
+        </mat-error>
+        <mat-error *ngIf="codFormControl.hasError('required')">
+          El codigo es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div class="buttonSearch">
+      <a mat-raised-button (click)='getSubjectByCod()'>Buscar</a>
+    </div>
   </div>
 
-  <div class="ordenadoClass">
-    <mat-chip-listbox aria-label="Fish selection">
-        <mat-chip-option (click)="ordenarCod()">Ordenar Código</mat-chip-option>
-        <mat-chip-option (click)="ordenarNormal()">Ordenar Nombre A-Z</mat-chip-option>
+  <div class="marginTable">
+    <div class="buttonSearch">
+      <a mat-raised-button routerLink="/crearNuevaMateria">Agregar Materia</a>
+    </div>
+
+    <div class="ordenadoClass">
+      <mat-chip-listbox aria-label="Fish selection">
+        <mat-chip-option (click)="clickFilterCod()">Ordenar Código</mat-chip-option>
+        <mat-chip-option (click)="clickFilterNormal()">Ordenar Nombre A-Z</mat-chip-option>
         <mat-chip-option (click)="ordenarContrario()">Ordenar Nombre Z-A</mat-chip-option>
-        <mat-chip-option (click)="ordenarEstado()">Ordenar Estado Activo</mat-chip-option>
+        <mat-chip-option (click)="clickFilterEstado()">Ordenar Estado Activo</mat-chip-option>
       </mat-chip-listbox>
-      
-  </div>
 
-    <table mat-table *ngIf=showTable [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 demo-table">
-      <ng-container matColumnDef="codSubject">
-        <th mat-header-cell *matHeaderCellDef> Código </th>
-        <td mat-cell *matCellDef="let element"> {{element.codSubject}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="nameSubject">
-        <th mat-header-cell *matHeaderCellDef> Nombre Materia </th>
-        <td mat-cell *matCellDef="let element"> {{element.nameSubject}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="quotas">
-        <th mat-header-cell *matHeaderCellDef> Quotas </th>
-        <td mat-cell *matCellDef="let element"> {{element.quotas}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="statusSubject">
-        <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
-        <td mat-cell *matCellDef="let element"> {{element.statusSubject}} </td>
-      </ng-container>
-      
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row (click)="editRow(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+      <table mat-table *ngIf=showTable [dataSource]="dataSource" multiTemplateDataRows
+        class="mat-elevation-z8 demo-table">
+        <ng-container matColumnDef="codSubject">
+          <th mat-header-cell *matHeaderCellDef> Código </th>
+          <td mat-cell *matCellDef="let element"> {{element.codSubject}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nameSubject">
+          <th mat-header-cell *matHeaderCellDef> Nombre Materia </th>
+          <td mat-cell *matCellDef="let element"> {{element.nameSubject}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quotas">
+          <th mat-header-cell *matHeaderCellDef> Quotas </th>
+          <td mat-cell *matCellDef="let element"> {{element.quotas}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="statusSubject">
+          <th mat-header-cell *matHeaderCellDef> Estado de la materia </th>
+          <td mat-cell *matCellDef="let element"> {{element.statusSubject}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row (click)="editRow(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+
       </table>
-      <mat-paginator [pageSize]="10" showFirstLastButtons aria-label="Select page of periodic elements">
-      </mat-paginator>
-  </div>
+
+      <div class="mat-elevation-z8 demo-table marginleft">
+        <a class="stilyPagniatorText">Pagina: {{this.pagina}}</a>
+        <button mat-mini-fab color="accent" aria-label="More" class="marginButtons" (click)="previousPag()">
+          <mat-icon>skip_previous</mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" aria-label="Less" class="marginButtons" (click)="nextPag()">
+          <mat-icon>skip_next</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>

@@ -57,6 +57,26 @@ section {
   width: 100%;
 }
 
+.stilyPagniatorText{
+  display: inline-block;
+  color: white;
+  text-align: top !important;
+  padding-bottom: 40dp !important;
+  text-decoration: none;
+}
+
+.marginleft {
+  align-content: end !important;
+  text-align: end !important;
+  background-color: #424242;
+}
+
+.marginButtons{
+  width: 30px !important;
+  height: 30px !important;
+  margin: 10px;
+}
+
 .mat-mdc-row .mat-mdc-cell {
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
@@ -71,7 +91,7 @@ section {
   font-weight: bold;
 }
 .marginTableForm {
-  margin-top: 100px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   margin-left: 5% !important;

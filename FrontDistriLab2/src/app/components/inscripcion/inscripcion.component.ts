@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { InscripcionService } from 'src/app/service/InscripcionesService';
+import * as XLSX from 'xlsx';
 import { Inscripcion } from '../../models/Inscripcion';
 import { DialogInscripcionComponent } from './DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
-import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-estudiantes',

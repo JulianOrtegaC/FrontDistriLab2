@@ -1,0 +1,101 @@
+:host {
+    background-color: #fff;
+}
+
+.container {
+    background-color: #fff;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.FormularioCrear {
+    margin-top: 100px;
+    width: 800px;
+    background-color: white;
+}
+
+.select {
+    background-color: #f0f0f0;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 0px;
+    border: none;
+}
+
+.conInputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    /* ajusta el espacio horizontal entre los textos */
+    text-align: justify;
+}
+
+form input {
+    display: inline;
+    height: 35px;
+    font-family: 'Muli', sans-serif;
+    border: solid 1px #d1d1d1;
+    border-radius: 10px;
+}
+
+textarea:focus,
+input:focus {
+    outline-color: #FCC728;
+}
+
+input[type="submit"] {
+    display: block;
+    position: relative;
+    margin-left: 80%;
+    font-family: 'Muli', sans-serif;
+    background-color: #fff;
+    border: solid 1px #d1d1d1;
+    transition: all 0.4s;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #FCC728;
+    border: solid 1px #fff;
+}
+
+.botonEnvi {
+    display: block;
+    align-items: end;
+    justify-content: end;
+}
+
+.btn-enviar {
+    background-color: #3e8e41;
+    /* color de fondo */
+    color: white;
+    /* color del texto */
+    border: none;
+    /* sin borde */
+    border-radius: 4px;
+    /* borde redondeado */
+    padding: 12px 24px;
+    /* espacio interno */
+    text-align: center;
+    /* centrar el texto */
+    text-decoration: none;
+    /* sin subrayado */
+    display: inline-block;
+    /* mostrar como bloque en línea */
+    font-size: 16px;
+    /* tamaño del texto */
+    margin: 10px;
+    /* espacio exterior */
+    cursor: pointer;
+    /* cambio de cursor al pasar por encima */
+    transition-duration: 0.4s;
+    /* duración de la transición */
+}
+
+.btn-enviar:hover {
+    background-color: #D6F8B8;
+    /* color de fondo al pasar por encima */
+}
