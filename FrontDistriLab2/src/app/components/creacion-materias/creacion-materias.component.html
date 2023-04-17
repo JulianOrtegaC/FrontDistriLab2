@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="container">
+
+    <div class="FormularioCrear">
+        <form>
+            <div class="conInputs">
+                <h3>Nombre de la Materia:</h3>
+                <input type="text" [(ngModel)]="nameSubject" 
+                name="NameMateria" placeholder="Nombre de la Materia">
+
+                <h3>Número de Creditos:</h3>
+                <input class="inpCod" type="text" name="numDocument" value="" placeholder="Numero de créditos"
+                    [(ngModel)]="quotas" required>
+
+                <h3>Estatus de la materia:</h3>
+                <select class="select TipoP" name="statusStudent" [(ngModel)]="statusSubject" required>
+                    <option value="" disabled> Seleccione el estado de la materia</option>
+                    <option value="A">Activa</option>
+                    <option value="I">Inactiva</option>
+                </select>
+        
+            </div>
+            <div class="botonEnvi">
+                <button type="button" class="btn-enviar" [disabled]="!CreacionMateria"
+                    (click)="crearNuevaeMateria()">Confirmar</button>
+            </div>
+        </form>
+    </div>
+
+</div>

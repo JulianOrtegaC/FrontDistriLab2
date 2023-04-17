@@ -31,6 +31,8 @@ export class MateriasComponent implements OnInit {
 
   valueCod: number = 0;
 
+  pagina = 1
+
   displayedColumns: string[] = ['codSubject', 'nameSubject', 'quotas', 'statusSubject']
   columnsToDisplayWithExpand = [this.displayedColumns, 'expand'];
   dataSource = new MatTableDataSource<Materias>();
@@ -79,9 +81,12 @@ export class MateriasComponent implements OnInit {
   }
 
   getSubjects() {
+    if(this.validateFilters()){
+      this.pagina = 1
+      this.updateDeleteFilters()
+    }
     this.loaderSpinner = true;
-    this.materiasService.getMaterias().subscribe(data => {
-
+    this.materiasService.getMaterias(this.pagina).subscribe(data => {
       this.getOkFilter(data);
     },
       error => {
@@ -94,66 +99,134 @@ export class MateriasComponent implements OnInit {
   }
 
   ordenarContrario() {
-    this.materiasService.getFilterDecending().subscribe(data => {
-      this.ordenadoNameZ = !this.ordenadoNameZ;
-      if (this.ordenadoNameZ) {
-        this.getOkFilter(data);
-      } else {
-        this.updateDeleteFilters();
-        this.getSubjects();
-      }
-    },
-      error => {
-        this.errorGetData(error);
-      });
+    if (this.ordenadoNameZ) {
+    this.pagina = 1
+    }
+    if (this.ordenadoNameZ) {
+      this.materiasService.getFilterDecending(this.pagina).subscribe(data => {
+          this.getOkFilter(data);  
+      },
+        error => {
+          this.errorGetData(error);
+        });
+    } else {
+      this.updateDeleteFilters();
+      this.getSubjects();
+    }
   }
 
   ordenarNormal() {
-    this.materiasService.getMateriasFilterNormal().subscribe(data => {
-      this.ordenadoNameA = !this.ordenadoNameA;
-      if (this.ordenadoNameA) {
-        this.getOkFilter(data);
-      } else {
-        this.updateDeleteFilters();
-        this.getSubjects();
-      }
-    },
-      error => {
-        this.errorGetData(error);
-      });
+    if(!this.ordenadoNameA){
+      this.pagina = 1
+    }
+    
+    if (this.ordenadoNameA) {
+      this.materiasService.getMateriasFilterNormal(this.pagina).subscribe(data => {
+          this.getOkFilter(data);
+      },
+        error => {
+          this.errorGetData(error);
+        });
+    } else {
+      this.updateDeleteFilters();
+      this.getSubjects();
+    }
+  }
+
+  nextPag(){
+    this.pagina++;
+    this.callPaginatorSubjects();
+  }
+
+  previousPag(){
+    if(this.pagina >1){
+      this.pagina--;
+    }else{
+      return;
+    }
+    this.callPaginatorSubjects();
+  }
+
+  callPaginatorSubjects(){
+    if(this.ordenadoEstado){
+      this.ordenarEstado();
+      return;
+    }
+
+    if(this.ordenadoNameA){
+      this.ordenarNormal();
+      return;
+    }
+
+    if(this.ordenadoNameZ){
+      this.ordenarContrario();
+      return;
+    }
+
+    if(this.ordenadoCod){
+      this.ordenarCod()
+      return;
+    }
+
+    this.getSubjects()
+  }
+
+  clickFilterEstado(){
+    this.ordenadoEstado = !this.ordenadoEstado;
+    this.ordenarEstado();
+  }
+
+  clickFilterContrario(){
+    this.ordenadoNameZ = !this.ordenadoNameZ;
+    this.ordenarContrario();
+  }
+
+  clickFilterNormal(){
+    this.ordenadoNameA = !this.ordenadoNameA;
+    this.ordenarNormal();
+  }
+
+  clickFilterCod(){
+    this.ordenadoCod = !this.ordenadoCod;
+    this.ordenarCod();
   }
 
   ordenarEstado() {
-    this.materiasService.getMateriasFilterEstado().subscribe(data => {
-      this.ordenadoEstado = !this.ordenadoEstado;
-      if (this.ordenadoEstado) {
-        this.getOkFilter(data);
-      } else {
-        this.updateDeleteFilters();
-        this.getSubjects();
-      }
-    },
-      error => {
-        this.errorGetData(error);
-      });
+    if(!this.ordenadoEstado){
+      this.pagina = 1
+    }
+    if (this.ordenadoEstado) {
+      this.materiasService.getMateriasFilterEstado(this.pagina).subscribe(data => {
+          this.getOkFilter(data);
+      },
+        error => {
+          this.errorGetData(error);
+        });
+    } else {
+      this.updateDeleteFilters();
+      this.getSubjects();
+    }
   }
 
   ordenarCod() {
-    this.materiasService.getMateriasFilterCode().subscribe(data => {
-      this.ordenadoCod = !this.ordenadoCod;
-      if (this.ordenadoCod) {
+    if (!this.ordenadoCod) {
+      this.pagina = 1
+    }
+    if (this.ordenadoCod) {
+    this.materiasService.getMateriasFilterCode(this.pagina).subscribe(data => {
         this.getOkFilter(data);
-      } else {
-        this.updateDeleteFilters();
-        this.getSubjects();
-      }
     },
       error => {
         this.errorGetData(error);
       });
+    } else {
+      this.updateDeleteFilters();
+      this.getSubjects();
+    }
   }
 
   getSubjectByCod() {
+    this.pagina = 1
     if (this.valueCod !== undefined) {
       this.materiasService.getMateriasByCode(this.valueCod).subscribe(data => {
         this.getOkFilterByCode(data);
@@ -173,6 +246,10 @@ export class MateriasComponent implements OnInit {
     this.ordenadoNameA = false;
     this.ordenadoNameZ = false;
     this.ordenadoCod = false;
+  }
+
+  private validateFilters(): boolean{
+    return (this.ordenadoEstado || this.ordenadoNameA || this.ordenadoNameZ || this.ordenadoCod);
   }
 
   private errorGetData(error: any) {
@@ -215,7 +292,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
+
 function ResponseMateriasByCode(): any {
   throw new Error('Function not implemented.');
 }
-
