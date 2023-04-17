@@ -22,23 +22,23 @@ export class EstudiantesService {
         // return this.http.post(`${this.myAppUrl}addStudent`, estudiante);
     }
     getEstudiantesFilterNormal(): Observable<any> {
-        return this.http.get(this.myAppUrl + '/getSubjectNormal');
+        return this.http.get(this.myAppUrl + 'getStudenttNormal');
     }
 
     getEstudiantesFilterEstado(): Observable<any> {
-        return this.http.get(this.myAppUrl + '/getSubjectFilterState');
+        return this.http.get(this.myAppUrl + 'getStudentFilterState');
     }
 
     getEstudiantesFilterCode(): Observable<any> {
-        return this.http.get(this.myAppUrl + '/getSubjectFilterCod');
+        return this.http.get(this.myAppUrl + 'getStudentFilterCod');
     }
 
     getEstudiantesByCode(numberCode: number): Observable<any> {
-        return this.http.get(this.myAppUrl + '/getSubject/' + numberCode);
+        return this.http.get(this.myAppUrl + 'getSubject/' + numberCode);
     }
 
     getFilterDecending(): Observable<any> {
-        return this.http.get(this.myAppUrl + '/getSubjectDecending');
+        return this.http.get(this.myAppUrl + 'getStudentDecending');
     }
 
 
