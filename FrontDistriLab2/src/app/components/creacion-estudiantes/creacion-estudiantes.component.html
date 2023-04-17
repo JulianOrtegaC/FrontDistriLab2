@@ -37,7 +37,8 @@
                     <option value="F">Mujer</option>
                 </select>
                 <div class="drop-zone" (drop)="onFileDrop($event)" (dragover)="onDragOver($event)">
-                    Arrastra y suelta una imagen aquí
+                    <img [src]="imageSrc" *ngIf="imageSrc" alt="Imagen cargada" class="uploaded-image">
+                    <span *ngIf="!imageSrc">Arrastra y suelta una imagen aquí</span>
                   </div>
             </div>
             <div class="botonEnvi">

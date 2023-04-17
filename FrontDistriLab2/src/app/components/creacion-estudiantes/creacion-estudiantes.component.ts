@@ -16,8 +16,10 @@ export class CreacionEstudiantesComponent {
   statusStudent!: string;
   genderStudent!: string;
 
+  imageSrc!: string; // Variable para almacenar la URL de datos de la imagen
+
   onFileDrop(event: DragEvent) {
-    event.preventDefault(); 
+    event.preventDefault();
     const files = (event.dataTransfer as DataTransfer).files;
     this.uploadFiles(files);
   }
@@ -27,9 +29,12 @@ export class CreacionEstudiantesComponent {
   }
 
   uploadFiles(files: FileList) {
-    // Aquí puedes implementar la lógica para subir los archivos al servidor
-    // utilizando una API de servicio o una librería de manejo de archivos
-    console.log(files);
+    // Leer la imagen como una URL de datos
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageSrc = event.target.result;
+    };
+    reader.readAsDataURL(files[0]);
   }
   constructor(private estudiantesService: EstudiantesService, private router: Router) {
 
