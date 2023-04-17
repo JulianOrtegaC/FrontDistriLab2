@@ -21,5 +21,25 @@ export class EstudiantesService {
         return this.http.post("https://localhost:7111/Student/addStudent", estudiante);
         // return this.http.post(`${this.myAppUrl}addStudent`, estudiante);
     }
+    getEstudiantesFilterNormal(): Observable<any> {
+        return this.http.get(this.myAppUrl + '/getSubjectNormal');
+    }
+
+    getEstudiantesFilterEstado(): Observable<any> {
+        return this.http.get(this.myAppUrl + '/getSubjectFilterState');
+    }
+
+    getEstudiantesFilterCode(): Observable<any> {
+        return this.http.get(this.myAppUrl + '/getSubjectFilterCod');
+    }
+
+    getEstudiantesByCode(numberCode: number): Observable<any> {
+        return this.http.get(this.myAppUrl + '/getSubject/' + numberCode);
+    }
+
+    getFilterDecending(): Observable<any> {
+        return this.http.get(this.myAppUrl + '/getSubjectDecending');
+    }
+
 
 }

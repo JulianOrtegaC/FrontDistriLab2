@@ -21,6 +21,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
+
 
 
 
@@ -55,7 +58,8 @@ import { MatInputModule } from '@angular/material/input';
     MatToolbarModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    DragDropModule
   ],
   exports: [CommonModule,
     MatIconModule,
@@ -76,7 +80,8 @@ import { MatInputModule } from '@angular/material/input';
     MatToolbarModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    DragDropModule
   ]
 })
 export class SharedModule { }

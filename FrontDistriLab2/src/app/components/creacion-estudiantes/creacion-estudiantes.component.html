@@ -36,6 +36,9 @@
                     <option value="M">Hombre</option>
                     <option value="F">Mujer</option>
                 </select>
+                <div class="drop-zone" (drop)="onFileDrop($event)" (dragover)="onDragOver($event)">
+                    Arrastra y suelta una imagen aquí
+                  </div>
             </div>
             <div class="botonEnvi">
                 <button type="button" class="btn-enviar" [disabled]="!CreacionEstudiantes"

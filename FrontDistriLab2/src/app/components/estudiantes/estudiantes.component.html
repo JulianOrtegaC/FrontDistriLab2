@@ -67,6 +67,16 @@
       <span> Agregar  Estudiante</span>
     </button>
   </div>
+
+  <div class="ordenadoClass">
+    <mat-chip-listbox aria-label="Fish selection">
+        <mat-chip-option (click)="ordenarCod()">Ordenar Código</mat-chip-option>
+        <mat-chip-option (click)="ordenarNormal()">Ordenar Nombre A-Z</mat-chip-option>
+        <mat-chip-option (click)="ordenarContrario()">Ordenar Nombre Z-A</mat-chip-option>
+        <mat-chip-option (click)="ordenarEstado()">Ordenar Estado Activo</mat-chip-option>
+      </mat-chip-listbox>
+      
+  </div>
   <div class="contenedorTabla">
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

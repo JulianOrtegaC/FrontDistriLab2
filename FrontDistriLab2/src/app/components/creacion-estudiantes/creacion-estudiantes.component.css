@@ -75,3 +75,12 @@ form input{
   .btn-enviar:hover {
     background-color: #D6F8B8; /* color de fondo al pasar por encima */
   }
+  .drop-zone {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }

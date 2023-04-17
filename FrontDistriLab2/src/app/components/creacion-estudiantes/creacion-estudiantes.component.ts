@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { EstudiantesService } from 'src/app/service/EstudiantesService';
-import { EstudiantesComponent } from '../estudiantes/estudiantes.component';
 import { Estudiantes } from 'src/app/models/Materias';
 import { Router } from '@angular/router';
 
@@ -16,6 +15,22 @@ export class CreacionEstudiantesComponent {
   numDocument!: string;
   statusStudent!: string;
   genderStudent!: string;
+
+  onFileDrop(event: DragEvent) {
+    event.preventDefault(); 
+    const files = (event.dataTransfer as DataTransfer).files;
+    this.uploadFiles(files);
+  }
+
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  uploadFiles(files: FileList) {
+    // Aquí puedes implementar la lógica para subir los archivos al servidor
+    // utilizando una API de servicio o una librería de manejo de archivos
+    console.log(files);
+  }
   constructor(private estudiantesService: EstudiantesService, private router: Router) {
 
   }
