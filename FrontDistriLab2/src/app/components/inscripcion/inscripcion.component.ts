@@ -19,7 +19,7 @@ export class InscripcionComponent implements OnInit {
   showPaginator = false;
   error = false;
   errorMessaje = "Error en la inscripcion";
-  displayedColumns: string[] = ['idInscription', 'codStudent', 'codSubject', 'dateRegistration']
+  displayedColumns: string[] = ['idInscription', 'codStudent', 'nameStudent','codSubject', 'nameSubject','dateRegistration']
   columnsToDisplayWithExpand = [this.displayedColumns, 'expand'];
   dataSource = new MatTableDataSource<Inscripcion>();
 
