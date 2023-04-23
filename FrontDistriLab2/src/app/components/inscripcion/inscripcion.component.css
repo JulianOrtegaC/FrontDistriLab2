@@ -6,6 +6,24 @@
 .contenedorTabla{
   width: 80%;
 }
+.general {
+  background-color: white;
+}
+
+.loader {
+  margin: 10px;
+}
+
+.errorInfo {
+  width: 100%;
+  display: block;
+  text-align: center !important;
+  font-size: 30px !important;
+  color: white !important;
+  background-color: #424242 !important;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
 
 .btn {
   background-color: #26b40d;
@@ -14,9 +32,7 @@
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
-  margin-left: 80px;
-  padding: 8px 20px;
-  transition: all 0.3s ease-in-out;
+  margin-left: 100px;
 }
 .example-label {
   display: table-cell;
@@ -61,4 +77,18 @@
 
 .demo-row-is-clicked {
   font-weight: bold;
+}
+
+.marginTableForm {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 5% !important;
+}
+.marginTable {
+  display: block;
+  align-items: center;
+  margin-left: 5% !important;
+  margin-right: 5% !important;
+  margin-top: 10px !important;
 }
