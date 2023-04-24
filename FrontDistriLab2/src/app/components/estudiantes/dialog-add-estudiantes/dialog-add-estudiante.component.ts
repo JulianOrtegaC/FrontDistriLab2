@@ -13,6 +13,7 @@ export class DialogAddEstudianteComponent {
   constructor(public dialogRef: MatDialogRef<DialogAddEstudianteComponent>,
     @Inject(MAT_DIALOG_DATA) public estudiante: Estudiantes,) { 
       this.estuAux = estudiante;
+      console.log(estudiante);
       if(this.estuAux.pathStudent?.length != 0){
         this.showImage = true; 
       }
