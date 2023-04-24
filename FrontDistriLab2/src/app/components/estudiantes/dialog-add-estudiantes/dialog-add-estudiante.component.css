@@ -21,8 +21,8 @@
   .imgProfile {
     margin-left: 30px;
     display: flex;
-    width: 10%;
-    height: 15%;
+    width: 20%;
+    height: 20%;
     background-color: transparent;
   }
   .imgMyProfile{
@@ -36,6 +36,10 @@
     height: 20px;
     margin-left: 2%;
 
+  }
+
+  a{
+    text-decoration: none;
   }
   
   .personal-datas {
