@@ -4,8 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { InscripcionService } from 'src/app/service/InscripcionesService';
 import * as XLSX from 'xlsx';
-import { Inscripcion } from '../../models/Inscripcion';
-import { InscripcionShow } from '../../models/InscriptionShow';
+import { Inscripcion} from '../../models/Inscripcion';
 import { DialogInscripcionComponent } from './DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
 
 @Component({
@@ -22,7 +21,7 @@ export class InscripcionComponent implements OnInit {
   errorMessaje = "Error en la inscripcion";
   displayedColumns: string[] = ['idInscription', 'codStudent', 'nameStudent','codSubject', 'nameSubject','dateRegistration']
   columnsToDisplayWithExpand = [this.displayedColumns, 'expand'];
-  dataSource = new MatTableDataSource<InscripcionShow>();
+  dataSource = new MatTableDataSource<Inscripcion>();
 
   constructor(public inscripcionService: InscripcionService,  public dialog: MatDialog){}
 
@@ -56,7 +55,7 @@ export class InscripcionComponent implements OnInit {
   getInscripcion() {
     this.loaderSpinner = true;
     this.inscripcionService.getInscripcion().subscribe(data => {
-      this.dataSource = new MatTableDataSource<InscripcionShow>(data);
+      this.dataSource = new MatTableDataSource<Inscripcion>(data);
       this.dataSource.paginator = this.paginator;
       this.loaderSpinner = false;
       this.error = false;
