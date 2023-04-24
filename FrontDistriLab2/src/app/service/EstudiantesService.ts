@@ -18,7 +18,7 @@ export class EstudiantesService {
 
     crearEstudiante(estudiante: Estudiantes): Observable<any> {
         console.log(estudiante);
-        return this.http.post("https://backenddistri.azurewebsites.net/Student/addStudent", estudiante);
+        return this.http.post("https://backenddistri.azurewebsites.net/Student", estudiante);
         // return this.http.post(`${this.myAppUrl}addStudent`, estudiante);
     }
     getEstudiantesFilterNormal(): Observable<any> {

@@ -19,7 +19,7 @@ export class CreacionEstudiantesComponent {
 
   imageSrc!:File; // Variable para almacenar la URL de datos de la imagen
   imageUpload!:File;
-  urlImage:string ="";
+  urlImage!:string;
   token = "si=distriLab&sv=2021-12-02&sr=c&sig=rlnRXy64ZJI%2FkxIxRVTh5z2z2KGsKMk0XaRM70%2B9CnI%3D"
   loaderSpinner = false;
 
@@ -55,11 +55,18 @@ export class CreacionEstudiantesComponent {
 
   crearNuevoEstudiante() {
     this.loaderSpinner = true;
-    var upload = this.uploadImage()
-    if(!upload){
-      return;
-    }
+    this.uploadImage().then((resultado: string) => {
+      this.urlImage = resultado;
+      this.createStudent();
+    }).catch((error) => {
+      console.error(error);
+      this.urlImage = "";
+    });
 
+    
+  }
+
+  createStudent(){
     const auxEstudiante: Estudiantes = {
       codStudent: 0,
       firstNameStudent: this.firstNameStudent,
@@ -70,10 +77,11 @@ export class CreacionEstudiantesComponent {
       genderStudent: this.genderStudent,
       pathStudent: this.urlImage
     }
+
+    console.log(auxEstudiante);
     
     this.estudiantesService.crearEstudiante(auxEstudiante).subscribe(result => {
       this.loaderSpinner = false;
-      alert(result)
       this.router.navigate(['estudiantes']);
     },
       error => {
@@ -82,24 +90,22 @@ export class CreacionEstudiantesComponent {
     )
   }
 
-  async uploadImage(): Promise<boolean> {
+  async uploadImage(): Promise<string> {
     try {
       var connectionString:string ="https://imagesuni.blob.core.windows.net?"+this.token;
       var blobServiceClient = new BlobServiceClient(connectionString);
       const containerClient = blobServiceClient.getContainerClient("students");
       const blob = new Blob([this.imageUpload], { type: this.imageUpload.type });
-      alert(this.imageUpload.name);
       const blockBlobClient = containerClient.getBlockBlobClient(this.imageUpload.name);
      
       (await blockBlobClient.upload(blob, blob.size));
-      this.urlImage = blockBlobClient.url
-      console.log(this.urlImage);
       console.log('La imagen se subió exitosamente.');
-      return true;
+      var url = blockBlobClient.url
+      return url;
     } catch (error) {
       alert("Error al subir la imgen, intentelo de nuevo más tarde")
       console.error('Se produjo un error al subir la imagen:', error);
-      return false;
+      return "";
     }
   }
 }

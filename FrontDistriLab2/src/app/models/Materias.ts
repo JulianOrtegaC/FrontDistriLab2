@@ -14,5 +14,5 @@ export interface Estudiantes{
     numDocument:string;
     statusStudent:string;
     genderStudent:string;
-    pathStudent: string;
+    pathStudent:string | null;
 }

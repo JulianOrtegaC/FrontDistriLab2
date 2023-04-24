@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ResponseStudentsByCode } from 'src/app/models/ResponseMateriasByCode';
 import { EstudiantesService } from 'src/app/service/EstudiantesService';
 import { Estudiantes } from '../../models/Materias';
-import { ResponseMateriasByCode, ResponseStudentsByCode } from 'src/app/models/ResponseMateriasByCode';
 
 @Component({
   selector: 'app-estudiantes',
@@ -51,7 +51,7 @@ export class EstudiantesComponent implements OnInit {
         this.error = true;
         this.showTable = false;
         this.showPaginator = false;
-        console.error("error es: " + error);
+        console.error("error es: " + error.errorMessaje);
       });
   }
 
