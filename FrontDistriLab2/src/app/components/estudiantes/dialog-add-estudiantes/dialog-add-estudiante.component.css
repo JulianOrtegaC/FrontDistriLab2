@@ -23,7 +23,7 @@
   }
   .imgProfile {
     margin: auto;
-    display: block;
+    display: flex;
     position: relative;
     width: 20%;
     height: 20%;
