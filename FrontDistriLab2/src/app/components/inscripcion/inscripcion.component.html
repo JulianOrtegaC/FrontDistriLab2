@@ -1,5 +1,9 @@
 <div class="general">
   <app-navbar></app-navbar>
+  <div class="marginTable">
+    <div class="buttonSearch">
+      <a mat-raised-button routerLink="/createNewInscription">Agregar Inscripción</a>
+    </div>
   <mat-progress-bar *ngIf=loaderSpinner mode="indeterminate"></mat-progress-bar>
   <a *ngIf=error class="mat-elevation-z8 errorInfo">{{errorMessaje}}</a>
   <div class="marginTable">

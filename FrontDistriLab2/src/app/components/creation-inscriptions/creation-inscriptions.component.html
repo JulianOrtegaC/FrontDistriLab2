@@ -1,1 +1,26 @@
-<p>creation-inscriptions works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+
+    <div class="FormularioCrear">
+        <form>
+            <div class="conInputs">
+                <h3>ID de la inscripcion</h3>
+                <input type="text" [(ngModel)]="idInscription" 
+                name="idInscription" placeholder="ID de la inscripcion">
+
+                <h3>Codigo estudiante:</h3>
+                <input class="inpCod" type="text" name="CodStudent" value="" placeholder="Código estudiante"
+                    [(ngModel)]="codStudent" required>
+
+                <h3>Codigo Materia:</h3>
+                <input class="inpCod" type="text" name="CodSubject" value="" placeholder="Código Materia"
+                    [(ngModel)]="codSubject" required>
+        
+            </div>
+            <div class="botonEnvi">
+                <button type="button" class="btn-enviar" [disabled]="!CreationInscription"
+                    (click)="createInscripcion()">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</div>

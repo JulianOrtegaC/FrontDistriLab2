@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Inscripcion } from "../models/Inscripcion";
+import { InscripcionR } from "../models/InscripcionR";
 
 @Injectable({
     providedIn: "root"
@@ -17,11 +18,11 @@ export class InscripcionService {
         return this.http.get(this.baseUrl + '/getInscriptions');
     }
 
-    updateInscripcion(inscripcion: Inscripcion): Observable<any> {
+    updateInscripcion(inscripcion: InscripcionR): Observable<any> {
         return this.http.put(this.baseUrl + "/editInscription", inscripcion);
     }
 
-    addInscription(inscripcion: Inscripcion): Observable<any>{
+    addInscription(inscripcion: InscripcionR): Observable<any>{
         return this.http.post(this.baseUrl + "/addInscription", inscripcion);
     }
 }
