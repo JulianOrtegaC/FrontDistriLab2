@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { InscripcionService } from 'src/app/service/InscripcionesService';
 import * as XLSX from 'xlsx';
 import { Inscripcion} from '../../models/Inscripcion';
+import { InscripcionR} from '../../models/InscripcionR';
 import { DialogInscripcionComponent } from './DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
 
 @Component({
@@ -41,7 +42,13 @@ export class InscripcionComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.inscripcionService.updateInscripcion(result).subscribe(data => {
+      const dataI: InscripcionR = {
+        idInscription: result.idInscription,
+        codStudent: result.codStudent,
+        codSubject: result.codSubject,
+        dateRegistration: result.dateRegistration
+      }
+      this.inscripcionService.updateInscripcion(dataI).subscribe(data => {
         alert("SE REALIZARON LOS CAMBIOS EN EL RESGISTRO")
         this.getInscripcion()
       })

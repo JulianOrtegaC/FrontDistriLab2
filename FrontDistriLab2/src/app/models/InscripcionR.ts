@@ -1,6 +1,6 @@
 export interface InscripcionR {
     idInscription: number;
-    codStudent: string;
+    codStudent: number;
     codSubject: number;
     dateRegistration: string;
   }
