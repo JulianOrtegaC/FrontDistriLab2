@@ -9,7 +9,7 @@ import { Inscripcion } from "../models/Inscripcion";
 export class InscripcionService {
 
     //baseUrl: string = 'https://localhost:7111/inscripcion'
-    baseUrl: string = 'https://backenddistri.azurewebsites.net/inscripcion'
+    baseUrl: string = 'https://backendinscriptions.azurewebsites.net/inscripcion'
     
     constructor(private http: HttpClient) { }
 
