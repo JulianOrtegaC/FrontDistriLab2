@@ -4,6 +4,9 @@
   .imagen{
     height: 25%;
     background-color: aqua;
+    align-items: center;
+    text-align: center;
+    align-content: center;
   }
   .imgPortada{
     position: absolute;
