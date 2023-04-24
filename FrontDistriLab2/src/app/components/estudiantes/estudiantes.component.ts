@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { EstudiantesService } from 'src/app/service/EstudiantesService';
 import { Estudiantes } from '../../models/Materias';
 import { ResponseMateriasByCode, ResponseStudentsByCode } from 'src/app/models/ResponseMateriasByCode';
+import { DialogAddEstudianteComponent } from './dialog-add-estudiantes/dialog-add-estudiante.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-estudiantes',
@@ -27,7 +29,7 @@ export class EstudiantesComponent implements OnInit {
   displayedColumns: string[] = ['codStudent', 'firstNameStudent', 'lastNameStudent', 'typeDocument', 'numDocument', 'statusStudent', 'genderStudent']
   dataSource = new MatTableDataSource<Estudiantes>();
   errorMessaje = "Error en los Estudiantes";
-  constructor(public estudianteService: EstudiantesService) {
+  constructor(public estudianteService: EstudiantesService,public dialog: MatDialog) {
     
    }
 
@@ -158,5 +160,21 @@ export class EstudiantesComponent implements OnInit {
     this.showTable = true;
     this.showPaginator = (this.dataSource.data.length > 0);
   }
+  editRow(row: Estudiantes) {
+    const dialogRef = this.dialog.open(DialogAddEstudianteComponent, {
+      data: row,
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.materiasService.updateMateria(result).subscribe(data => {
+    //     this.getSubjects()
+    //   })
+    // },
+    //   error => {
+    //     this.error = true;
+    //     this.errorMessaje = "Error al momento de actualizar materia, vuelva a intentarlo.";
+    //   });
+  }
+
 
 }

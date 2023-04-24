@@ -21,12 +21,12 @@ import { EstudiantesComponent } from './components/estudiantes/estudiantes.compo
 import { DialogInscripcionComponent } from './components/inscripcion/DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { DialogAddSubjectComponent } from './components/materias/dialogs/dialog-add-subject/dialog-add-subject.component';
-import { DialogAddSubjectsCompleteComponent } from './components/materias/dialogs/dialog-add-subjects-complete/dialog-add-subjects-complete.component';
 import { MateriasComponent } from './components/materias/materias.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { SharedModule } from './shared/shared.module';
 import { CreationInscriptionsComponent } from './components/creation-inscriptions/creation-inscriptions.component';
+import {DialogAddEstudianteComponent} from './components/estudiantes/dialog-add-estudiantes/dialog-add-estudiante.component'
 
 @NgModule({
   declarations: [
@@ -38,10 +38,10 @@ import { CreationInscriptionsComponent } from './components/creation-inscription
     NavbarComponent,
     DialogAddSubjectComponent,
     DialogInscripcionComponent,
-    DialogAddSubjectsCompleteComponent,
     CreacionEstudiantesComponent,
     CreacionMateriasComponent,
-    CreationInscriptionsComponent
+    CreationInscriptionsComponent,
+    DialogAddEstudianteComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +59,8 @@ import { CreationInscriptionsComponent } from './components/creation-inscription
     ReactiveFormsModule,
     MatDividerModule,
     CommonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    DialogAddEstudianteComponent
   ],
   exports: [
     CommonModule,
