@@ -22,8 +22,9 @@
   height: 100%;
   }
   .imgProfile {
-    margin-left: 30px;
-    display: flex;
+    margin: auto;
+    display: block;
+    position: relative;
     width: 20%;
     height: 20%;
     background-color: transparent;
