@@ -17,6 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreacionEstudiantesComponent } from './components/creacion-estudiantes/creacion-estudiantes.component';
 import { CreacionMateriasComponent } from './components/creacion-materias/creacion-materias.component';
+import { CreationInscriptionsComponent } from './components/creation-inscriptions/creation-inscriptions.component';
+import { DialogAddEstudianteComponent } from './components/estudiantes/dialog-add-estudiantes/dialog-add-estudiante.component';
 import { EstudiantesComponent } from './components/estudiantes/estudiantes.component';
 import { DialogInscripcionComponent } from './components/inscripcion/DialogInscripcion/dialog-inscripcion/dialog-inscripcion.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
@@ -25,8 +27,6 @@ import { MateriasComponent } from './components/materias/materias.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { SharedModule } from './shared/shared.module';
-import { CreationInscriptionsComponent } from './components/creation-inscriptions/creation-inscriptions.component';
-import {DialogAddEstudianteComponent} from './components/estudiantes/dialog-add-estudiantes/dialog-add-estudiante.component'
 
 @NgModule({
   declarations: [
@@ -59,8 +59,7 @@ import {DialogAddEstudianteComponent} from './components/estudiantes/dialog-add-
     ReactiveFormsModule,
     MatDividerModule,
     CommonModule,
-    MatFormFieldModule,
-    DialogAddEstudianteComponent
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,

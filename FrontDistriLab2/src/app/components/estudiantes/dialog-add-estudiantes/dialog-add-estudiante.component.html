@@ -1,47 +1,46 @@
 <div class="conteProfile">
     <div class="imagen"></div>
         <div class="imgProfile">
-            <img src="./assets/notFound.jpg" alt="" class="imgMyProfile">
-            <p class="text-name">zz</p>
+            <img *ngIf="showImage" src="{{estuAux.pathStudent}}" alt="" class="imgMyProfile">
+            <img *ngIf="!showImage" src="./assets/notFound.jpg" alt="" class="imgMyProfile">
         </div>
-        <input type="file" id="f1" multiple="false" accept="image/*" class="inputImg">
     <div class="personal-datas">
         <div class="info">
             <div class="info-left">
                 <div class="xdd">
                     <h4>Codigo Estudiante </h4>
-                    <input type="text" name="name" class="input-conf" placeholder="{{estuAux.codStudent}}"/>
+                    <a type="text" name="name" class="input-conf">{{estuAux.codStudent}}</a>
                 </div>
                 <mat-divider class="matdividerProfile"></mat-divider>
                 <div class="xdd">
                     <h4>Nombre: </h4>
-                    <input type="text" name="name" placeholder="{{estuAux.firstNameStudent}}" class="input-conf" />
+                    <a type="text" name="name" class="input-conf">{{estuAux.firstNameStudent}}</a>
                 </div>
                 <mat-divider class="matdividerProfile"></mat-divider>
                 
                 <div class="xdd">
                     <h4>Tipo de Documento: </h4>
-                    <input type="text" name="name" value="" placeholder="{{estuAux.typeDocument}}" class="input-conf" />
+                    <a type="text" name="name" class="input-conf">{{estuAux.typeDocument}}</a>
                 </div>
                 <div class="xdd">
                     <h4>Genero: </h4>
-                    <input type="text" name="name" value="" placeholder="{{estuAux.genderStudent}}" class="input-conf" />
+                    <a type="text" name="name" class="input-conf">{{estuAux.genderStudent}}</a>
                 </div>
 
             </div>
             <div class="info-right">
                 <div class="xdd">
                     <h4>Estado Estudiante: </h4>
-                    <input type="text" name="name" value="" placeholder="{{estuAux.statusStudent}}" class="input-conf" />
+                    <a type="text" name="name" class="input-conf">{{estuAux.statusStudent}}</a>
                 </div>
                 <div class="xdd">
                     <h4>Apellido: </h4>
-                    <input type="email" name="name" value="" placeholder="{{estuAux.lastNameStudent}}" class="input-conf" />
+                    <a type="text" name="name" class="input-conf">{{estuAux.lastNameStudent}}</a>
                 </div>
                 <mat-divider class="matdividerProfile"></mat-divider>
                 <div class="xdd">
                     <h4>Numero de Documento: </h4>
-                    <input type="number" name="name" value="" placeholder="{{estuAux.numDocument}}" class="input-conf" />
+                    <a type="text" name="name" class="input-conf">{{estuAux.numDocument}}</a>
                 </div>
             </div>
         </div>

@@ -62,7 +62,6 @@ export class CreacionEstudiantesComponent {
       console.error(error);
       this.urlImage = "";
     });
-
     
   }
 
