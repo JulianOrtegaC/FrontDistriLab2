@@ -10,8 +10,8 @@ import { ResponseMaterias } from "../models/ResponseMaterias";
 })
 export class MateriasService {
 
-    baseUrl: string = 'https://localhost:7111/subject'
-
+    //baseUrl: string = 'https://localhost:7111/subject'
+    baseUrl: string = 'backenddistri.azurewebsites.net/api/subject'
     constructor(private http: HttpClient) { }
 
     getMaterias(pagina:number): Observable<any> {
