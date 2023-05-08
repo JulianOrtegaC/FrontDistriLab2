@@ -8,7 +8,7 @@ import { Estudiantes } from "../models/Materias";
 })
 export class EstudiantesService {
 
-   private myAppUrl: string ='https://backenddistri.azurewebsites.net/Student/';
+   private myAppUrl: string ='https://backenddistristudents.azurewebsites.net/Student/';
 
     constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class EstudiantesService {
 
     crearEstudiante(estudiante: Estudiantes): Observable<any> {
         console.log(estudiante);
-        return this.http.post("https://backenddistri.azurewebsites.net/Student", estudiante);
+        return this.http.post("https://backenddistristudents.azurewebsites.net/Student", estudiante);
         // return this.http.post(`${this.myAppUrl}addStudent`, estudiante);
     }
     getEstudiantesFilterNormal(): Observable<any> {
