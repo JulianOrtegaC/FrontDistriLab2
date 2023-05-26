@@ -7,8 +7,8 @@ import { Estudiantes } from "../models/Materias";
     providedIn: "root"
 })
 export class EstudiantesService {
-
-   private myAppUrl: string ='https://backenddistristudents.azurewebsites.net/Student/';
+    myAppUrl: string = 'https://localhost:7111/Student/'
+   //private myAppUrl: string ='https://backenddistristudents.azurewebsites.net/Student/';
 
     constructor(private http: HttpClient) { }
 

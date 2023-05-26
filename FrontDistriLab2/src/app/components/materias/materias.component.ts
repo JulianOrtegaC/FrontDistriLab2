@@ -87,7 +87,7 @@ export class MateriasComponent implements OnInit {
     }
     this.loaderSpinner = true;
     this.materiasService.getMaterias(this.pagina).subscribe(data => {
-      this.getOkFilter(data);
+      this.getOkFilter(data.data);
     },
       error => {
         this.errorGetData(error);
@@ -122,7 +122,7 @@ export class MateriasComponent implements OnInit {
     
     if (this.ordenadoNameA) {
       this.materiasService.getMateriasFilterNormal(this.pagina).subscribe(data => {
-          this.getOkFilter(data);
+          this.getOkFilter(data.data);
       },
         error => {
           this.errorGetData(error);
@@ -197,7 +197,7 @@ export class MateriasComponent implements OnInit {
     }
     if (this.ordenadoEstado) {
       this.materiasService.getMateriasFilterEstado(this.pagina).subscribe(data => {
-          this.getOkFilter(data);
+          this.getOkFilter(data.data);
       },
         error => {
           this.errorGetData(error);
@@ -214,7 +214,7 @@ export class MateriasComponent implements OnInit {
     }
     if (this.ordenadoCod) {
     this.materiasService.getMateriasFilterCode(this.pagina).subscribe(data => {
-        this.getOkFilter(data);
+        this.getOkFilter(data.data);
     },
       error => {
         this.errorGetData(error);
@@ -229,7 +229,7 @@ export class MateriasComponent implements OnInit {
     this.pagina = 1
     if (this.valueCod !== undefined) {
       this.materiasService.getMateriasByCode(this.valueCod).subscribe(data => {
-        this.getOkFilterByCode(data);
+        this.getOkFilterByCode(data.data);
       });
     } else {
       this.loaderSpinner = false;

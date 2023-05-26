@@ -41,7 +41,7 @@ export class EstudiantesComponent implements OnInit {
   getStudent() {
     this.loaderSpinner = true;
     this.estudianteService.getStudent().subscribe(data => {
-      this.dataSource = new MatTableDataSource<Estudiantes>(data);
+      this.dataSource = new MatTableDataSource<Estudiantes>(data.data);
       this.dataSource.paginator = this.paginator;
       this.loaderSpinner = false;
       this.error = false;
@@ -84,7 +84,7 @@ export class EstudiantesComponent implements OnInit {
     this.estudianteService.getEstudiantesFilterNormal().subscribe(data => {
       this.ordenadoNameA = !this.ordenadoNameA;
       if (this.ordenadoNameA) {
-        this.getOkFilter(data);
+        this.getOkFilter(data.data);
       } else {
         this.updateDeleteFilters();
         this.getStudent();
@@ -114,7 +114,7 @@ export class EstudiantesComponent implements OnInit {
     this.estudianteService.getEstudiantesFilterCode().subscribe(data => {
       this.ordenadoCod = !this.ordenadoCod;
       if (this.ordenadoCod) {
-        this.getOkFilter(data);
+        this.getOkFilter(data.data);
       } else {
         this.updateDeleteFilters();
         this.getStudent();

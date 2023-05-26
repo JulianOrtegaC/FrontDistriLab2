@@ -28,7 +28,7 @@ export class InscripcionComponent implements OnInit {
 
   exportToExcel() {
     this.inscripcionService.getInscripcion().subscribe(data => {
-      exportToExcel(data)
+      exportToExcel(data.data)
     })
   }
   
@@ -62,7 +62,7 @@ export class InscripcionComponent implements OnInit {
   getInscripcion() {
     this.loaderSpinner = true;
     this.inscripcionService.getInscripcion().subscribe(data => {
-      this.dataSource = new MatTableDataSource<Inscripcion>(data);
+      this.dataSource = new MatTableDataSource<Inscripcion>(data.data);
       this.dataSource.paginator = this.paginator;
       this.loaderSpinner = false;
       this.error = false;
