@@ -10,16 +10,17 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { CreationInscriptionsComponent } from './components/creation-inscriptions/creation-inscriptions.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GuardGuard } from './Guards/guard.guard';
 
 
 
 const routes: Routes = [ 
-  {path: 'materias', component: MateriasComponent},
-  {path: 'estudiantes', component: EstudiantesComponent},
-  {path: 'inscripciones', component: InscripcionComponent},
-  {path: 'crearNuevoEstudiante', component: CreacionEstudiantesComponent},
-  {path: 'crearNuevaMateria', component: CreacionMateriasComponent},
-  {path: 'createNewInscription', component: CreationInscriptionsComponent},
+  {path: 'materias', component: MateriasComponent , canActivate:[GuardGuard]},
+  {path: 'estudiantes', component: EstudiantesComponent, canActivate:[GuardGuard]},
+  {path: 'inscripciones', component: InscripcionComponent , canActivate:[GuardGuard]},
+  {path: 'crearNuevoEstudiante', component: CreacionEstudiantesComponent, canActivate:[GuardGuard]},
+  {path: 'crearNuevaMateria', component: CreacionMateriasComponent, canActivate:[GuardGuard]},
+  {path: 'createNewInscription', component: CreationInscriptionsComponent, canActivate:[GuardGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: "**", component: PrincipalComponent}
