@@ -8,6 +8,7 @@ import { InscripcionComponent } from './components/inscripcion/inscripcion.compo
 import { MateriasComponent } from './components/materias/materias.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { CreationInscriptionsComponent } from './components/creation-inscriptions/creation-inscriptions.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -18,7 +19,9 @@ const routes: Routes = [
   {path: 'crearNuevoEstudiante', component: CreacionEstudiantesComponent},
   {path: 'crearNuevaMateria', component: CreacionMateriasComponent},
   {path: 'createNewInscription', component: CreationInscriptionsComponent},
+  {path: 'login', component: LoginComponent},
   {path: "**", component: PrincipalComponent}
+
 ];
 
 @NgModule({

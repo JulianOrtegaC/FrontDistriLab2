@@ -27,6 +27,7 @@ import { MateriasComponent } from './components/materias/materias.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SharedModule } from './shared/shared.module';
     CreacionEstudiantesComponent,
     CreacionMateriasComponent,
     CreationInscriptionsComponent,
-    DialogAddEstudianteComponent
+    DialogAddEstudianteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

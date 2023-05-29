@@ -16,3 +16,9 @@ export interface Estudiantes{
     genderStudent:string;
     pathStudent:string | null;
 }
+
+
+export interface LoginInfo{
+    email: string;
+    password: string;
+  }

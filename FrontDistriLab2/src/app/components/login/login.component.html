@@ -1,0 +1,34 @@
+<div class="contenedor">
+    <!-- <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0"
+        class="imagenFondo1">
+    </div>
+    <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0"
+        class="imagenFondo2"> </div> -->
+
+    <mat-card data-aos="zoom-in-up" class="cardFormulario">
+
+        <div class="dere">
+
+            <div class="divtitle">
+                <a class="navtitle" routerLink="/welcome">SIRA</a>
+            </div>
+            <div class="aso">
+                <h6 class="h6asoPlata">Sistema Informacion y <br>Registro Academico </h6>
+            </div>
+        </div>
+
+        <div class="form">
+            <form [formGroup]="loginForm" class="login-form">
+                <input type="text" placeholder="correo electronico" class="form-control" formControlName="email"
+                    id="email" />
+                <input type="password" placeholder="contraseña" class="form-control" formControlName="password"
+                    id="password" />
+                <button class="buttonAceptar" (click)="login()">Aceptar</button>
+                <p class="message"><a href="#" routerLink="/forgot-password">Olvido su contraseña</a></p>
+
+            </form>
+            <mat-divider></mat-divider>
+            <button class="buttonRegister" routerLink="/register">Registrarse</button>
+        </div>
+    </mat-card>
+</div>
