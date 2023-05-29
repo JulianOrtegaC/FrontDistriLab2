@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginInfo } from '../../models/Materias';
 import { Router } from '@angular/router';
 import { CuentaService } from 'src/app/service/CuentaService';
+import { LoginInfo } from '../../models/Materias';
 
 @Component({
   selector: 'app-login',
@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit {
       next: (res: any) => {
         console.log(res); 
         localStorage.setItem('token', res.token);
+
+        // Para establecer una cookie
+        document.cookie = 'cookieName='+res.token+'; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/;';
+
         this.accountService.setactualID(res.userId);
 
         this.router.navigate(['start']);
