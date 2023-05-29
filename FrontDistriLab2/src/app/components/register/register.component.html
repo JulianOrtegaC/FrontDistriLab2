@@ -1,0 +1,39 @@
+<div class="contenedor">
+    <!-- <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0"
+        class="imagenFondo1">
+    </div>
+    <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0"
+        class="imagenFondo2"> </div> -->
+
+    <mat-card data-aos="zoom-in-up" class="cardFormulario">
+
+        <div class="dere">
+
+            <div class="divtitle">
+                <a class="navtitle" routerLink="/welcome">SIRA</a>
+            </div>
+            <div class="aso">
+                <h6 class="h6asoPlata">Sistema Informacion y <br>Registro Academico </h6>
+            </div>
+        </div>
+
+        <div class="form">
+            <div class="alert alert-danger " *ngIf="errors" role="alert">
+                Las Contraseñas no Coinciden
+            </div>
+            <form class="login-form">
+                <input type="text" placeholder="Nombre" [(ngModel)]="nameuser" class="form-control"
+                    id="email" name="nameuser"/>
+                <input type="email" placeholder="correo electronico" class="form-control"[(ngModel)]="email"
+                id="email" name="email"/>
+                    <input type="password" placeholder="contraseña" class="form-control" [(ngModel)]="password"
+                    id="password"  name="password"/>
+                    <input type="password" placeholder=" Repite contraseña" class="form-control" [(ngModel)]="repeat_password"
+                    id="password"  name="repeat_password"/>
+                <button class="buttonAceptar" (click)="register()">Aceptar</button>
+                <p class="message"><a href="#" routerLink="/login">Ya tienes Cuenta</a></p>
+
+            </form>
+        </div>
+    </mat-card>
+</div>

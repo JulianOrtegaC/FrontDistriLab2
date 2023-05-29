@@ -22,3 +22,8 @@ export interface LoginInfo{
     email: string;
     password: string;
   }
+export interface Registro{
+    nameuser:string;
+    email:string;
+    password: string;
+}

@@ -1,0 +1,156 @@
+.contenedor {
+    display: flex;
+}
+
+.cardFormulario {
+    position: relative;
+    margin: auto;
+    margin-top: 5%;
+}
+
+
+.dere {
+    margin: 25px;
+    display: flex;
+}
+
+.divtitle {
+    margin-top: 15%;
+    background-color: transparent;
+}
+
+.navtitle {
+    margin-top: 10px;
+    font-size: 60px;
+    padding: 10px;
+    font-weight: 600;
+    color: #d6f8b8;
+    text-decoration: none;
+}
+
+.aso {
+    margin-top: 45px;
+    display: inline;
+}
+
+.h6asoPlata {
+    display: inline;
+    color: azure;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    width: 90%;
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    border-color: #f2f2f2;
+    border-radius: 4px;
+    border-width: 1px;
+    height: 35px;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.buttonAceptar {
+    width: 100%;
+}
+
+.buttonRegister {
+    width: 70%;
+    margin-top: 15px;
+}
+
+.buttonAceptar,
+.buttonRegister {
+    font-family: "Roboto", sans-serif;
+    background: #d6f8b8;
+    padding: 12px;
+    color: #635f1d;
+    font-size: 14px;
+    cursor: pointer;
+    border-color: #f4eb49;
+    border-radius: 4px;
+    border-width: 1px;
+}
+
+.message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.message a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.mat-divider {
+    margin-top: 6px;
+    border-width: 1.2px;
+}
+
+.imagenFondo1 {
+    position: absolute;
+    width: 28%;
+    height: 30%;
+    left: 72%;
+    top: 0%;
+    background-size: 100% 100%;
+    background-image: url("src\assets\imagen1.jpg");
+}
+
+
+.imagenFondo2 {
+    position: absolute;
+    width: 38%;
+    height: 50%;
+    top: 27%;
+    background-size: 100% 100%;
+    background-image: url("src\assets\uptc.jpg");
+}
+
+.imagenFondo3 {
+    position: absolute;
+    width: 38%;
+    height: 30%;
+    left: 62%;
+    top: 40%;
+    background-size: 100% 100%;
+    background-image: url("src\assets\imagen1.jpg");
+}
+
+.imagenFondo4 {
+    position: absolute;
+    width: 40%;
+    height: 44%;
+    top: 56%;
+    background-size: 100% 100%;
+    background-image: url("src\assets\imagen1.jpg");
+}
+
+.contenedortriangulo2 {
+    width: 40%;
+    height: 44%;
+    top: 56%;
+    position: absolute;
+}
+
+.triangulo2 {
+    z-index: 98;
+    position: absolute;
+    border-bottom: 44vh solid transparent;
+    border-right: 40vw solid white;
+
+}
