@@ -8,7 +8,7 @@ import { Registro } from '../models/Materias';
 })
 export class CuentaService {
   // private myAppUrl: string ='https://backenddistristudents.azurewebsites.net/Login/';
-  private myAppUrl: string ='https://backenddistristudents1.azurewebsites.net/Login/';
+  private myAppUrl: string ='https://backendinscriptions2.azurewebsites.net/Login/';
 
   userID= 0
   private userID$ = new BehaviorSubject<number>(this.userID)
