@@ -16,7 +16,7 @@ export class CuentaService {
   constructor(private http: HttpClient) { }
 
   login(userName: string, hash: string): Observable<any> {
-    return this.http.post(`${this.myAppUrl}?userName=${userName}&hash=${hash}`, {});
+    return this.http.post(`${this.myAppUrl}?userName=${userName}&password=${hash}`, {});
   }
   register(nameuser : string , email:string , password:string ): Observable<any> {
     return this.http.post(`${this.myAppUrl}register?userName=${nameuser}&email${email}&password${password}`,{}); 
