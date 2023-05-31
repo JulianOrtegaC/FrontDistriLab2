@@ -7,6 +7,8 @@ import { Registro } from '../models/Materias';
   providedIn: 'root'
 })
 export class CuentaService {
+
+  public isLogin:boolean=false;
   // private myAppUrl: string ='https://backenddistristudents.azurewebsites.net/Login/';
   private myAppUrl: string ='https://backendinscriptions2.azurewebsites.net/Login/';
 
@@ -32,6 +34,13 @@ export class CuentaService {
     this.idActual$=documentNumber;
   }
 
+    getIsLogin():boolean{
+      return this.isLogin;
+    }
+
+    setIsLogin(isLogins:boolean){
+      this.isLogin = isLogins;
+    }
 
 
 

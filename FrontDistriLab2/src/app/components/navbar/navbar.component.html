@@ -1,8 +1,13 @@
 <div class="navxd">
-    <span  class="title" routerLink="/principal">Inscripción de materias</span>
-    <span class="spacer"></span>
-    <div class="btn-div">
-        <button mat-button routerLink="/materias" class="btn">Materias</button>
-        <button mat-button routerLink="/estudiantes" class="btn">Estudiantes</button>
-    </div>
+  <span class="title" routerLink="/principal">Inscripción de materias</span>
+  <span class="spacer"></span>
+  <div class="btn-div">
+    <button mat-button routerLink="/materias" class="btn">Materias</button>
+    <button mat-button routerLink="/estudiantes" class="btn">
+      Estudiantes
+    </button>
+  </div>
+  <button routerLink="/login" class="btnExit" (click)='logout()' *ngIf="isLogin">
+    <span class="material-symbols-outlined iconNav">logout</span>
+  </button>
 </div>

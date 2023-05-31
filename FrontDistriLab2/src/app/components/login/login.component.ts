@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.removeItem('token');
     this.loginForm = this.initForm();
   }
 
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
         document.cookie = 'cookieName='+res.token+'; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/;';
 
         this.accountService.setactualID(res.userId);
-
+        this.accountService.setIsLogin(true);
         this.router.navigate(['start']);
       },
       error: (err) => {
