@@ -21,7 +21,7 @@ export class CuentaService {
     return this.http.post(`${this.myAppUrl}?emailUser=${userName}&password=${hash}`, {});
   }
   register(nameuser : string , email:string , password:string ): Observable<any> {
-    return this.http.post(`${this.myAppUrl}register?nameuser=${nameuser}&email${email}&password${password}`,{}); 
+    return this.http.post(`${this.myAppUrl}register?nameuser=${nameuser}&email=${email}&password=${password}`,{}); 
   }
 
   get actualID$(): Observable<number> {
